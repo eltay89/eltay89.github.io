@@ -3,7 +3,7 @@ title: 13 Months of AI Wisdom in 40 Minutes? This YouTuber Makes it Possible
 date: 2024-07-02 13:22 +0300
 categories: [Artificial Intelligence, Tech Talk, Future is Now]
 tags: [AI, AGI, ASI, machine learning, automation, side hustle, learning, David Ondrej, The New Society]
-author: [Mohamed]
+author: Mohamed
 ---
 
 ## AI Cliff Notes: YouTuber's Whirlwind Tour Through a Year of Brainy Tech
