@@ -4,8 +4,6 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-# About Me
-
 I'm Mohamed Eltay, a driven and published Computer Engineer and Data Analyst with a passion for leveraging machine learning and software development to solve real-world problems. My journey in the world of technology is fueled by a desire to create innovative solutions that have a tangible impact. 
 
 I thrive on the challenge of analyzing complex datasets, developing cutting-edge algorithms, and building scalable solutions.  My experience spans across various domains, from designing and implementing neural networks for handwritten Arabic text recognition to consulting with clients to optimize their IT infrastructure. I am eager to contribute my expertise to challenging opportunities in AI Engineering, Computer Engineering, Data Analysis, or PhD research where I can contribute to groundbreaking advancements.
