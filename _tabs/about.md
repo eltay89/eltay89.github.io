@@ -1,4 +1,10 @@
-## About Me
+---
+# the default layout is 'page'
+icon: fas fa-info-circle
+order: 4
+---
+
+# About Me
 
 I'm Mohamed Eltay, a driven and published Computer Engineer and Data Analyst with a passion for leveraging machine learning and software development to solve real-world problems. My journey in the world of technology is fueled by a desire to create innovative solutions that have a tangible impact. 
 
