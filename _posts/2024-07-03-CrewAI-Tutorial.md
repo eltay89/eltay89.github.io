@@ -11,7 +11,7 @@ tags:
   - agents
   - framework
   - CrewAI
-author: Your Name
+author:
 ---
 
 ## Crash Course on CrewAI: A Framework for Creating AI Agents
