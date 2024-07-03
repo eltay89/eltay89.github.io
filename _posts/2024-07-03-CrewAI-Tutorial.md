@@ -16,9 +16,9 @@ author:
 
 ## Crash Course on CrewAI: A Framework for Creating AI Agents
 
-![Desktop View](https://docs.crewai.com/crew_only_logo.png){: width="500"}
+![Desktop View](https://docs.crewai.com/crew_only_logo.png)
 
-[YouTube Video Link](https://youtu.be/sPzc6hMg7So?si=ObV1P5HbQKUBTE6e)
+{% include embed/youtube.html id='sPzc6hMg7So' %}
 
 This video is a crash course on CrewAI, a framework that allows you to create AI agents to solve complex problems. The video is divided into three parts: what CrewAI is and what it can do, how CrewAI works, and how to create your own CrewAI project.
 
