@@ -11,6 +11,7 @@ author:
 Ever wish you could fast-forward through a year's worth of learning? David Ondrej, the brains behind the YouTube channel David Ondrej, kinda did that with AI. His video "13 Months of AI Lessons in 40 Minutes" is like the ultimate cheat sheet for anyone curious about this whole AI craze. Seriously, if you're short on time but wanna be in the know, this video is your jam.
 
 ![Desktop View](/assets/images/AIin40Minutes.jpg){: width="500"}
+{% include embed/youtube.html id='hFlNEM6nff4s' %}
 
 ## Forget the Robot Apocalypse: AI's Here to Help, Not Harm
 
