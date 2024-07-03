@@ -12,7 +12,7 @@ Ever wish you could fast-forward through a year's worth of learning? David Ondre
 
 ![Desktop View](/assets/images/AIin40Minutes.jpg)
 
-{% include embed/youtube.html id='hFlNEM6nff4' %}
+{% include embed/youtube.html id='sPzc6hMg7So' %}
 
 ## Forget the Robot Apocalypse: AI's Here to Help, Not Harm
 
