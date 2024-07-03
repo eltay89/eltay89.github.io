@@ -22,7 +22,7 @@ author:
 
 A huge thank you to **Brandon** from **@codewithbrandon** for creating this incredibly informative video tutorial on LangChain! Be sure to check out his channel for more amazing content on AI, programming, and more.
 
-[YouTube Video Link](http://googleusercontent.com/youtube_content/1)
+[YouTube Video Link](https://youtu.be/yF9kGESAi3M?si=CfsQSWqSSycjPWEm)
 
 This comprehensive video tutorial provides a beginner-friendly deep dive into LangChain, a powerful tool for building AI applications. 
 
