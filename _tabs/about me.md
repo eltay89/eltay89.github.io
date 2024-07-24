@@ -17,10 +17,8 @@ I thrive on the challenge of analyzing complex datasets, developing cutting-edge
 **Let's Connect:**
 
 * **Email:** mohamed.eltay@hotmail.com
-* **Phone:** +966-598001936
 * **GitHub:** https://github.com/eltay89
 * **LinkedIn:** https://www.linkedin.com/in/mohamed-eltay/
-* **Location:** Dammam, Saudi Arabia
 
 **To delve deeper into my experience, skills, and projects, please explore the other sections of my blog.** 
 
