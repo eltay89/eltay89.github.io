@@ -12,7 +12,7 @@ tags:
   - Llama
 author:
 ---
-
+{% include embed/youtube.html id='YuIc4mq7zMU' %}
 [YouTube Video Link](https://youtu.be/YuIc4mq7zMU?si=apiU87t6AWvmTaaw)
 
 <style>
