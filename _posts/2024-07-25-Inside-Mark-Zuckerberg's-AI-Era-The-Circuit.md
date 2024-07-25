@@ -1,5 +1,5 @@
 ---
-title: زوكربيرغ: رحلة 20 عاما من التحول والابتكار
+title: زوكربيرغ رحلة 20 عاما من التحول والابتكار
 date: 2024-07-25 11:30 +0300
 categories:
   - Artificial Intelligence
@@ -10,6 +10,7 @@ tags:
   - Llama
 author:
 ---
+
 {% include embed/youtube.html id='YuIc4mq7zMU' %}
 [YouTube Video Link](https://youtu.be/YuIc4mq7zMU?si=apiU87t6AWvmTaaw)
 
@@ -19,7 +20,6 @@ body {
   text-align: right;
 }
 </style>
-
 # زوكربيرغ: رحلة من الدفاع إلى الهجوم 
 
 ## إعادة اختراع الذات وإمبراطورية متوسعة بلا نهاية
