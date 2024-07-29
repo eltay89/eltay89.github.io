@@ -14,6 +14,8 @@ tags:
   - RAG
   - AI Agents
 author:
+image:
+  path: https://uploads.sitepoint.com/wp-content/uploads/2023/10/1696379444langchain-logo-lg.jpg
 ---
 
 ## LangChain Master Class for Beginners: A Comprehensive Guide
