@@ -12,11 +12,11 @@ tags:
   - framework
   - CrewAI
 author:
+image:
+  path: https://docs.crewai.com/crew_only_logo.png
 ---
 
 ## Crash Course on CrewAI: A Framework for Creating AI Agents
-
-![Desktop View](https://docs.crewai.com/crew_only_logo.png)
 
 {% include embed/youtube.html id='sPzc6hMg7So' %}
 
