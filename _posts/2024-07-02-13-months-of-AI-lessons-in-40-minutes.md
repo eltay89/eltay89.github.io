@@ -5,7 +5,7 @@ categories: [Artificial Intelligence, Tech Talk, Future is Now]
 tags: [AI, AGI, ASI, machine learning, automation, side hustle, learning, David Ondrej, The New Society]
 author:
 image:
-  path: /assets/images/AIin40Minutes.jpg)
+  path: /assets/images/AIin40Minutes.jpg
 ---
 
 ## AI Cliff Notes: YouTuber's Whirlwind Tour Through a Year of Brainy Tech
