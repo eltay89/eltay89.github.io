@@ -10,7 +10,7 @@ tags:
   - Llama
 author:
 image:
-  path: https://freeimage.host/i/dTDERqJ
+  path: https://i.postimg.cc/BQwSx9YP/create-an-image-of-facebook-logo-with-it-s-owner-make-it-look-funny.png
 ---
 
 {% include embed/youtube.html id='YuIc4mq7zMU' %}
