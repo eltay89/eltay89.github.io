@@ -13,7 +13,7 @@ tags:
   - CrewAI
 author:
 image:
-  path: https://docs.crewai.com/crew_only_logo.png
+  path: https://i.postimg.cc/nVYNY2sv/images.jpg
 ---
 
 ## Crash Course on CrewAI: A Framework for Creating AI Agents
