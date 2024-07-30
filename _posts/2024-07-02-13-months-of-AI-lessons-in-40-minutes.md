@@ -4,13 +4,13 @@ date: 2024-07-02 13:22 +0300
 categories: [Artificial Intelligence, Tech Talk, Future is Now]
 tags: [AI, AGI, ASI, machine learning, automation, side hustle, learning, David Ondrej, The New Society]
 author:
+image:
+  path:/assets/images/AIin40Minutes.jpg
 ---
 
 ## AI Cliff Notes: YouTuber's Whirlwind Tour Through a Year of Brainy Tech
 
 Ever wish you could fast-forward through a year's worth of learning? David Ondrej, the brains behind the YouTube channel David Ondrej, kinda did that with AI. His video "13 Months of AI Lessons in 40 Minutes" is like the ultimate cheat sheet for anyone curious about this whole AI craze. Seriously, if you're short on time but wanna be in the know, this video is your jam.
-
-![Desktop View](/assets/images/AIin40Minutes.jpg)
 
 {% include embed/youtube.html id='hFlNEM6nff4' %}
 
