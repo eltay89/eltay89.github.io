@@ -9,7 +9,7 @@ tags:
   - TechWorkforce
 author:
 image:
-  path: https://i.postimg.cc/gjL5Cx38/create-an-image-of-sad-programmaer.png
+  path: https://i.postimg.cc/FKLgj0bM/create-an-image-of-sad-programmaer.png
 ---
 # The Surprising Truth About Programmer Happiness
 
