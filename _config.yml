@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "Mohamed Eltay / VibeCoder"
+title                    : "Mohamed Eltay' Blog"
 title_separator          : "-"
 name                     : &name "Mohamed Eltay"
 description              : &description "Computer Engineer | AI/ML Specialist"
@@ -23,8 +23,8 @@ repository               : "eltay89/eltay89.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
-  pronouns         : # example: "she/her"  
+  name             : "Mohamed Eltay"
+  pronouns         : "he/him"  
   bio              : "Computer Engineer, MSc | AI/ML Specialist | Architecting Intelligent Systems"
   location         : "Earth"
   employer         : "Freelancer"
