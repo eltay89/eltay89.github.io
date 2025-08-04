@@ -1,6 +1,6 @@
 ---
 title: 'The 3 Types of Machine Learning Explained'
-date: 2024-05-21
+date: 2025-08-04
 permalink: /posts/2024/05/learning-types-explained/
 tags:
   - machine-learning
@@ -27,7 +27,7 @@ graph TD
     A[Labeled Data<br>(e.g., Cat & Dog photos with labels)] --> B{Train Model}
     B --> C[New Unlabeled Photo]
     C --> D{Model Predicts}
-    D --> E[Output: "This is a Cat"]
+    D --> E["Output: This is a Cat"]
 ```
 
 #### Types of Supervised Learning
@@ -84,7 +84,7 @@ Unsupervised learning is the opposite of supervised learning. We give the model 
 graph TD
     A[Unlabeled Data<br>(e.g., customer purchase histories)] --> B{Train Model}
     B --> C[Model finds patterns]
-    C --> D[Output: Groups of similar customers]
+    C --> D["Output: Groups of similar customers"]
 ```
 
 #### Types of Unsupervised Learning
@@ -132,7 +132,7 @@ Reinforcement Learning (RL) is about training an `agent` to make decisions. The 
 ```mermaid
 graph LR
     Agent -- Action --> Environment
-    Environment -- State & Reward --> Agent
+    Environment -- "State & Reward" --> Agent
 ```
 
 #### Key Concepts of RL
@@ -188,16 +188,16 @@ Here's a simple way to think about which type of learning fits your problem.
 
 ```mermaid
 graph TD
-    A{What's my goal?} --> B{Predict an outcome?}
-    A --> C{Find hidden groups?}
-    A --> D{Train a system to do a task?}
+    A{"What's my goal?"} --> B{"Predict an outcome?"}
+    A --> C{"Find hidden groups?"}
+    A --> D{"Train a system to do a task?"}
 
-    B -- Yes --> F[Do I have labeled data?]
-    F -- Yes --> G[Use Supervised Learning]
-    F -- No --> H[You need to get labels first!]
+    B -- Yes --> F{"Do I have labeled data?"}
+    F -- Yes --> G["Use Supervised Learning"]
+    F -- No --> H["You need to get labels first!"]
     
-    C -- Yes --> I[Use Unsupervised Learning]
-    D -- Yes --> J[Use Reinforcement Learning]
+    C -- Yes --> I["Use Unsupervised Learning"]
+    D -- Yes --> J["Use Reinforcement Learning"]
 ```
 
 By understanding these three fundamental types, you can start to see the logic behind many of the AI systems we use every day. Each one is a powerful tool designed for a different kind of job.
