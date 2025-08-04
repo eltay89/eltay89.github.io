@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مقدمة بسيطة في تعلم الآلة</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Tahoma", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #111;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 10px;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #333;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        ul {
+            padding-right: 20px; /* Indentation for RTL */
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        blockquote {
+            background-color: #f0f0f0;
+            border-right: 5px solid #ccc; /* Border on the right for RTL */
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: right; /* Align text to the right for RTL */
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 40px 0;
+        }
+        strong {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>مقدمة بسيطة في تعلم الآلة</h1>
+
+    <h2>ما هو تعلّم الآلة؟ (Machine Learning)</h2>
+    <p>
+        ببساطة، تعلم الآلة هو فرع من فروع الذكاء الاصطناعي (AI) يركز على بناء أنظمة يمكنها <strong>التعلم من البيانات</strong> وتحديد الأنماط واتخاذ القرارات بأقل تدخل بشري. بدلاً من كتابة تعليمات برمجية لكل مهمة، نقوم بتدريب "نموذج" على كمية كبيرة من البيانات، وهو يتعلم كيفية أداء المهمة بنفسه.
+    </p>
+    <blockquote>
+        <p>فكّر في الأمر مثل تعليم طفل صغير كيفية التعرف على "القطة". لن تصف له القطة بكل تفاصيلها، بل ستعرض عليه صورًا عديدة للقطط، وفي النهاية سيتعلم بنفسه كيفية التعرف عليها. هذا هو جوهر تعلم الآلة.</p>
+    </blockquote>
+
+    <h2>لماذا يعتبر تعلم الآلة مهماً؟</h2>
+    <p>لقد أصبح تعلم الآلة جزءاً لا يتجزأ من حياتنا اليومية، ويدخل في العديد من التطبيقات التي نستخدمها، مثل:</p>
+    <ul>
+        <li><strong>أنظمة التوصية:</strong> مثلما يقترح عليك <strong>Netflix</strong> فيلماً أو يقترح <strong>Amazon</strong> منتجاً.</li>
+        <li><strong>فلترة البريد الإلكتروني:</strong> تصنيف الرسائل كبريد مهم أو بريد مزعج (Spam).</li>
+        <li><strong>التعرف على الصور:</strong> مثل الإشارة التلقائية إلى الأصدقاء في صور وسائل التواصل الاجتماعي.</li>
+        <li><strong>المساعدات الصوتية:</strong> مثل Siri و Google Assistant التي تفهم أوامرك الصوتية.</li>
+        <li><strong>التشخيص الطبي:</strong> مساعدة الأطباء في تحليل الصور الطبية للكشف عن الأمراض.</li>
+    </ul>
+
+    <h2>الأنواع الرئيسية لتعلم الآلة</h2>
+    <p>يمكن تقسيم تعلم الآلة بشكل أساسي إلى ثلاثة أنواع رئيسية:</p>
+
+    <h3>1. التعلم الخاضع للإشراف (Supervised Learning)</h3>
+    <p>
+        في هذا النوع، نقوم بتدريب النموذج على بيانات <strong>"مُصنّفة" (Labeled Data)</strong>. هذا يعني أن كل جزء من البيانات لديه الإجابة الصحيحة. النموذج يتعلم من خلال مقارنة توقعاته بالإجابات الصحيحة وتصحيح أخطائه.
+    </p>
+    <ul>
+        <li><strong>مثال:</strong> تدريب نموذج على مجموعة من صور القطط والكلاب، حيث تكون كل صورة مُصنّفة مسبقاً (هذه قطة، هذا كلب). الهدف هو أن يتمكن النموذج من التعرف على الصور الجديدة بنفسه.</li>
+    </ul>
+
+    <h3>2. التعلم غير الخاضع للإشراف (Unsupervised Learning)</h3>
+    <p>
+        هنا، يتعامل النموذج مع بيانات <strong>"غير مُصنّفة" (Unlabeled Data)</strong> ويحاول اكتشاف الأنماط أو الهياكل الخفية بنفسه دون أي إجابات صحيحة مسبقة.
+    </p>
+    <ul>
+        <li><strong>مثال:</strong> إعطاء النموذج بيانات مجموعة كبيرة من العملاء، ويقوم هو بتقسيمهم إلى مجموعات (Segments) بناءً على سلوكياتهم الشرائية المتشابهة.</li>
+    </ul>
+
+    <h3>3. التعلم المعزز (Reinforcement Learning)</h3>
+    <p>
+        هذا النوع يشبه تعليم حيوان أليف. يتعلم "العميل" (Agent) كيفية التصرف في بيئة معينة من خلال <strong>التجربة والخطأ</strong>. يحصل على <strong>"مكافآت"</strong> عند اتخاذ قرارات صحيحة، و<strong>"عقوبات"</strong> عند اتخاذ قرارات خاطئة، وهدفه هو زيادة إجمالي المكافآت.
+    </p>
+    <ul>
+        <li><strong>مثال:</strong> تدريب الذكاء الاصطناعي على لعب الشطرنج. يخسر ويكسب آلاف المرات، ويتعلم من كل تجربة ليصبح لاعباً أفضل.</li>
+    </ul>
+
+    <h2>خطوات عمل نموذج تعلم الآلة</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>الخطوة</th>
+                <th>الوصف</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>1. جمع البيانات</strong></td>
+                <td>الحصول على البيانات اللازمة لتدريب النموذج (صور، نصوص، أرقام).</td>
+            </tr>
+            <tr>
+                <td><strong>2. تجهيز البيانات</strong></td>
+                <td>تنظيف البيانات ومعالجتها لتكون جاهزة للتدريب.</td>
+            </tr>
+            <tr>
+                <td><strong>3. اختيار وتدريب النموذج</strong></td>
+                <td>اختيار الخوارزمية المناسبة وتدريبها على البيانات.</td>
+            </tr>
+            <tr>
+                <td><strong>4. تقييم النموذج</strong></td>
+                <td>اختبار أداء النموذج للتأكد من دقته وفعاليته.</td>
+            </tr>
+            <tr>
+                <td><strong>5. الاستخدام والتطبيق</strong></td>
+                <td>استخدام النموذج المدرب لاتخاذ قرارات أو توقعات على بيانات جديدة.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <p>تعلم الآلة هو مجال واسع وقوي يغير الطريقة التي نتفاعل بها مع التكنولوجيا، وإمكانياته لا تزال في بدايتها.</p>
+
+</body>
+</html>
