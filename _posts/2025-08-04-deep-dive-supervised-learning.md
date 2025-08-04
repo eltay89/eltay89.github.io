@@ -1,6 +1,6 @@
 ---
 title: 'A Deep Dive into Supervised Learning'
-date: 2024-05-22
+date: 2025-08-04
 permalink: /posts/2024/05/deep-dive-supervised-learning/
 tags:
   - machine-learning
