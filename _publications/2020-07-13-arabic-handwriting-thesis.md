@@ -1,7 +1,7 @@
 ---
 title: "Arabic Handwriting Recognition Using Deep Learning Neural Networks"
 collection: publications
-category: thesis
+category: manuscripts
 permalink: /publication/2020-07-13-arabic-handwriting-thesis
 excerpt: 'This master’s thesis presents a deep learning-based system for recognizing handwritten Arabic text. It introduces a novel adaptive data-augmentation algorithm to address training data imbalance, showing improved performance on benchmark datasets IFN/ENIT and AHDB.'
 date: 2020-07-13
