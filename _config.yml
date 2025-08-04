@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "AI Vibes: M. Eltay"
+title                    : "AI/ML Vibes"
 title_separator          : "-"
 name                     : &name "Mohamed Eltay"
 description              : &description "Computer Engineer | AI/ML Specialist"
