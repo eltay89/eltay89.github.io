@@ -6,10 +6,10 @@ permalink: /publication/2020-05-13-arabic-handwriting-dl
 excerpt: 'This paper presents state-of-the-art deep learning techniques for recognizing handwritten Arabic text, introducing a novel adaptive data augmentation algorithm to address class imbalance in training data.'
 date: 2020-05-13
 venue: 'IEEE Access, Volume 8'
-paperurl: 'https://ieeexplore.ieee.org/document/9099334'
+paperurl: 'https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9091836'
 doi: 'https://doi.org/10.1109/ACCESS.2020.2994248'
 slidesurl: ''
-bibtexurl: 'http://eltay89.github.io/files/bibtex_arabic_handwriting.bib'
+bibtexurl: 'http://eltay89.github.io/files/bibtex1.bib'
 citation: 'Mohamed Eltay, Abdelmalek Zidouri, and Irfan Ahmad. (2020). "Deep Learning Approaches for Handwritten Arabic Text Recognition Using Adaptive Data-Augmentation Algorithm." <i>IEEE Access</i>, 8, 89882–89898. https://doi.org/10.1109/ACCESS.2020.2994248'
 ---
 
