@@ -1,7 +1,7 @@
 ---
 title: 'A Comprehensive Introduction to Supervised Learning: Regression and Classification'
 date: 2025-08-04
-permalink: /posts/2024/05/comprehensive-supervised-learning-guide/
+permalink: /posts/2025/08/comprehensive-supervised-learning-guide/
 tags:
   - machine-learning
   - supervised-learning
