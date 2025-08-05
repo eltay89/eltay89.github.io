@@ -1,7 +1,7 @@
 ---
 title: 'A Simple Intro to Machine Learning'
 date: 2025-08-04
-permalink: /posts/2024/05/simple-intro-machine-learning/
+permalink: /posts/2025/08/simple-intro-machine-learning/
 tags:
   - machine-learning
   - beginners
