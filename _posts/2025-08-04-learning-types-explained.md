@@ -1,7 +1,7 @@
 ---
 title: 'The 3 Types of Machine Learning Explained'
 date: 2025-08-04
-permalink: /posts/2024/05/learning-types-explained/
+permalink: /posts/2025/08/learning-types-explained/
 tags:
   - machine-learning
   - supervised-learning
