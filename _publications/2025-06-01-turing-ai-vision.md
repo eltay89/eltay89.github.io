@@ -39,5 +39,3 @@ Enhanced by newly designed TikZ and PGFPlots diagrams, the paper offers a visual
 Independent Research Manuscript, August 2025
 
 ---
-
-> A BibTeX citation is available [here](/files/).  
