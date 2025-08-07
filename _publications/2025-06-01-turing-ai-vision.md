@@ -9,7 +9,7 @@ venue: 'Independent Research'
 paperurl: '/files/paper1.pdf'
 doi: ''
 slidesurl: ''
-bibtexurl: 'http://eltay89.github.io/files/turing_vision.bib'
+bibtexurl: '/files/turing_vision.bib'
 citation: 'Mohamed Eltay. (2025). "Turing’s Vision Revisited: Computing, Intelligence, and Ethics in the Age of AI." Independent Research Manuscript.'
 ---
 
@@ -40,4 +40,4 @@ Independent Research Manuscript, August 2025
 
 ---
 
-> A BibTeX citation is available [here](http://eltay89.github.io/files/turing_vision.bib).  
+> A BibTeX citation is available [here](/files/).  
