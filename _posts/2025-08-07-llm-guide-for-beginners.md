@@ -11,7 +11,6 @@ tags:
 metadata:
   estimated_reading_time: '18 minutes'
 ---
-```
 
 *(Estimated Reading Time: 18 minutes)*
 
