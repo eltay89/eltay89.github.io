@@ -6,7 +6,7 @@ permalink: /publication/2025-08-01-turing-ai-vision
 excerpt: 'This paper reexamines Alan Turing’s foundational ideas on machine intelligence through a six-layer analytical framework, connecting them to modern AI developments such as LLMs, and highlighting their ethical implications.'
 date: 2025-08-01
 venue: 'Independent Research'
-paperurl: ''
+paperurl: '/files/paper1.pdf'
 doi: ''
 slidesurl: ''
 bibtexurl: 'http://eltay89.github.io/files/turing_vision.bib'
