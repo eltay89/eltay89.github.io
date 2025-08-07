@@ -1,7 +1,7 @@
 ---
 title: 'What Are Large Language Models? A Guide for Absolute Beginners'
 date: 2025-08-07
-permalink: /posts/2024/05/llm-guide-for-beginners/
+permalink: /posts/2025/08/llm-guide-for-beginners/
 tags:
   - llm
   - artificial-intelligence
@@ -11,6 +11,7 @@ tags:
 metadata:
   estimated_reading_time: '18 minutes'
 ---
+```
 
 *(Estimated Reading Time: 18 minutes)*
 
@@ -61,27 +62,34 @@ For example, the sentence "LLMs are fascinating!" might be tokenized into:
 Notice how "fascinating" is split into two tokens. This allows the model to handle complex words and variations it may not have seen before.
 
 <details>
-  <summary>Click to see simple pseudocode for tokenization</summary>
+  <summary>Click to see clean pseudocode for tokenization</summary>
   
   ```
-  function tokenize(text):
-    // 1. Convert text to lowercase
-    text = text.to_lower()
+  // Function to break a sentence into tokens
+  function tokenize(sentence_text):
     
-    // 2. Split text by spaces and punctuation
-    words = split_by_whitespace_and_punctuation(text)
+    // Assume we have a predefined list of known words/sub-words
+    known_vocabulary = ["the", "quick", "brown", "fox", "jump", "s", "over", ...]
     
-    // 3. For each word, check if it's in our known vocabulary
-    tokens = []
-    for each word in words:
-      if word is in vocabulary:
-        add word to tokens
-      else:
-        // If word is unknown, break it into smaller parts
-        sub_words = break_into_known_sub_words(word)
-        add sub_words to tokens
-        
-    return tokens
+    // Start with the full text
+    remaining_text = sentence_text
+    list_of_tokens = []
+    
+    while remaining_text is not empty:
+      // Find the longest known token at the start of the remaining text
+      longest_match = ""
+      for token in known_vocabulary:
+        if remaining_text starts with token:
+          if length of token > length of longest_match:
+            longest_match = token
+            
+      // Add the found token to our list
+      add longest_match to list_of_tokens
+      
+      // Remove the matched part from the remaining text
+      remaining_text = remove_prefix(remaining_text, longest_match)
+      
+    return list_of_tokens
   ```
 </details>
 
@@ -113,10 +121,10 @@ The core innovation that made modern LLMs possible is the **Transformer architec
 ```mermaid
 graph TD
     subgraph "How an LLM Processes Input"
-        A[Input Text: "What is an LLM?"] --> B[1. Tokenization<br>["What", "is", "an", "LLM", "?"]]
-        B --> C{2. Transformer Model<br>(Attention Mechanism)}
-        C --> D[3. Prediction<br>Generates next most likely token]
-        D --> E[Output Text: "An LLM is..."]
+        A["Input Text:<br>'What is an LLM?'"] --> B["1. Tokenization<br>['What', 'is', 'an', 'LLM', '?']"]
+        B --> C{"2. Transformer Model<br>(with Attention Mechanism)"}
+        C --> D["3. Prediction<br>Generates next most likely token"]
+        D --> E["Output Text:<br>'An LLM is...'"]
     end
 ```
 *Caption: A Mermaid diagram showing the high-level flow from text input to text output in an LLM.*
@@ -130,26 +138,30 @@ The Transformer's secret weapon is the **attention mechanism**. It allows the mo
 When generating the next word, the model looks back at all the previous words and asks, "Which of these are most important for predicting what comes next?"
 
 <details>
-  <summary>Click to see a conceptual algorithm for attention</summary>
+  <summary>Click to see a clean conceptual algorithm for attention</summary>
   
   ```
-  function calculate_next_word(context_words):
-    // For the word we are about to generate...
-    scores = []
-    for each word in context_words:
-      // 1. Calculate a relevance score for each word in the context
-      relevance_score = calculate_relevance(current_position, word)
-      add relevance_score to scores
+  // Function to decide the next word based on the context
+  function calculate_next_word(previous_words):
+    
+    list_of_attention_scores = []
+    
+    // 1. Calculate a relevance score for every word in the context
+    for each word in previous_words:
+      // How relevant is this 'word' to the word we are about to generate?
+      relevance_score = calculate_relevance_to_next_word(word)
+      add relevance_score to list_of_attention_scores
       
-    // 2. Normalize scores so they add up to 1 (like percentages)
-    attention_weights = normalize(scores)
+    // 2. Normalize scores into weights (percentages)
+    // This turns scores like [10, 50, 5] into weights like [0.15, 0.77, 0.08]
+    attention_weights = convert_scores_to_percentages(list_of_attention_scores)
     
-    // 3. Create a weighted summary of the context
-    // Words with higher attention weights contribute more
-    weighted_context = create_weighted_sum(context_words, attention_weights)
+    // 3. Create a "weighted context"
+    // This emphasizes the words with higher attention weights
+    weighted_context = create_summary_from_weights(previous_words, attention_weights)
     
-    // 4. Use this weighted context to predict the next word
-    next_word = predict_word(weighted_context)
+    // 4. Use this focused context to predict the most likely next word
+    next_word = predict_from_weighted_context(weighted_context)
     
     return next_word
   ```
@@ -161,10 +173,10 @@ An LLM isn't born smart. It starts as a massive, untrained neural network—a bl
 
 ```mermaid
 graph TD
-    A[1. Data Collection<br>(A huge portion of the internet)] --> B[2. Pre-training<br>(Model learns grammar, facts, reasoning)]
-    B --> C(3. Base Model<br>A general-purpose, knowledgeable LLM)
-    C --> D[4. Fine-tuning<br>(Model is specialized on a smaller, task-specific dataset)]
-    D --> E(5. Deployed LLM<br>e.g., A customer service chatbot)
+    A["1. Data Collection<br>(A huge portion of the internet)"] --> B["2. Pre-training<br>(Model learns grammar, facts, reasoning)"]
+    B --> C["3. Base Model<br>(A general-purpose, knowledgeable LLM)"]
+    C --> D["4. Fine-tuning<br>(Model is specialized on a smaller, task-specific dataset)"]
+    D --> E["5. Deployed LLM<br>(e.g., A customer service chatbot)"]
 ```
 *Caption: The training pipeline of a Large Language Model, from data collection to deployment.*
 
@@ -205,7 +217,7 @@ After pre-training, we have a general-purpose "base model." To make it useful fo
 
 #### Prompt Engineering: The Art of Asking
 
-How you ask a question dramatically affects the quality of the answer. **Prompt engineering** is the skill of crafting inputs (prompts) to get the most accurate and relevant outputs from an LLM.
+How you ask a question dramatically affects the quality of the anwser. **Prompt engineering** is the skill of crafting inputs (prompts) to get the most accurate and relevant outputs from an LLM.
 
 -   **Be Specific:** Instead of "Write about dogs," try "Write a short, playful poem about a golden retriever chasing a ball."
 -   **Provide Context:** Give the model information to work with. "I'm a beginner programmer. Explain Python dictionaries using a simple analogy."
