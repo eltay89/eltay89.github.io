@@ -8,7 +8,11 @@ tags:
   - machine-learning
   - beginners
   - technology-explained
+metadata:
+  estimated_reading_time: '15 minutes'
 ---
+
+*(Estimated Reading Time: 15 minutes)*
 
 ### Table of Contents
 1.  [Introduction: The AI You Already Use Every Day](#introduction-the-ai-you-already-use-every-day)
@@ -56,40 +60,36 @@ For example, the sentence "LLMs are fascinating!" might be tokenized into:
 
 Notice how "fascinating" is split into two tokens. This allows the model to handle complex words and variations it may not have seen before.
 
-<details>
-  <summary>Click to see clean pseudocode for tokenization</summary>
+```pseudocode
+// Function to break a sentence into a list of tokens
+function tokenize(sentence_text):
   
-  ```pseudocode
-  // Function to break a sentence into a list of tokens
-  function tokenize(sentence_text):
+  // Assume we have a predefined vocabulary of known words and sub-words
+  // e.g., ["the", "quick", "brown", "fox", "jump", "s", "over", ...]
+  known_vocabulary = get_vocabulary()
+  
+  remaining_text = sentence_text
+  list_of_tokens = []
+  
+  // Loop until the entire sentence is processed
+  while length of remaining_text > 0:
     
-    // Assume we have a predefined vocabulary of known words and sub-words
-    // e.g., ["the", "quick", "brown", "fox", "jump", "s", "over", ...]
-    known_vocabulary = get_vocabulary()
+    // Find the longest piece of text from the beginning of our
+    // sentence that matches a token in our vocabulary.
+    longest_match = ""
+    for token in known_vocabulary:
+      if remaining_text starts with token:
+        if length of token > length of longest_match:
+          longest_match = token
+          
+    // Add the best match to our list
+    add longest_match to list_of_tokens
     
-    remaining_text = sentence_text
-    list_of_tokens = []
+    // Remove the matched part from the text we need to process
+    remaining_text = remove_prefix(remaining_text, longest_match)
     
-    // Loop until the entire sentence is processed
-    while length of remaining_text > 0:
-      
-      // Find the longest piece of text from the beginning of our
-      // sentence that matches a token in our vocabulary.
-      longest_match = ""
-      for token in known_vocabulary:
-        if remaining_text starts with token:
-          if length of token > length of longest_match:
-            longest_match = token
-            
-      // Add the best match to our list
-      add longest_match to list_of_tokens
-      
-      // Remove the matched part from the text we need to process
-      remaining_text = remove_prefix(remaining_text, longest_match)
-      
-    return list_of_tokens
-  ```
-</details>
+  return list_of_tokens
+```
 
 This token distribution is fundamental to how the model processes language.
 
@@ -98,7 +98,7 @@ This token distribution is fundamental to how the model processes language.
   "data": [
     {
       "x": ["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"],
-      "y":,
+      "y": [2, 1, 1, 1, 1, 1, 2, 1, 1],
       "type": "bar",
       "name": "Token Frequency"
     }
@@ -133,34 +133,30 @@ The Transformer's secret weapon is the **attention mechanism**. It allows the mo
 
 When generating the next word, the model looks back at all the previous words and asks, "Which of these are most important for predicting what comes next?"
 
-<details>
-  <summary>Click to see a clean conceptual algorithm for attention</summary>
+```pseudocode
+// Function to decide the next word based on the context of previous words
+function calculate_next_word(previous_words):
   
-  ```pseudocode
-  // Function to decide the next word based on the context of previous words
-  function calculate_next_word(previous_words):
+  attention_scores = []
+  
+  // 1. Calculate a relevance score for every word in the context.
+  // How important is each 'word' for predicting the very next word?
+  for each word in previous_words:
+    relevance_score = calculate_relevance_to_next_word(word)
+    add relevance_score to attention_scores
     
-    attention_scores = []
-    
-    // 1. Calculate a relevance score for every word in the context.
-    // How important is each 'word' for predicting the very next word?
-    for each word in previous_words:
-      relevance_score = calculate_relevance_to_next_word(word)
-      add relevance_score to attention_scores
-      
-    // 2. Normalize the scores into weights (percentages).
-    // This turns raw scores like into weights like [0.15, 0.77, 0.08].
-    attention_weights = convert_scores_to_percentages(attention_scores)
-    
-    // 3. Create a "weighted context" by emphasizing the important words.
-    weighted_context = create_summary_from_weights(previous_words, attention_weights)
-    
-    // 4. Use this focused, weighted context to predict the most likely next word.
-    next_word = predict_from_weighted_context(weighted_context)
-    
-    return next_word
-  ```
-</details>
+  // 2. Normalize the scores into weights (percentages).
+  // This turns raw scores like [10, 50, 5] into weights like [0.15, 0.77, 0.08].
+  attention_weights = convert_scores_to_percentages(attention_scores)
+  
+  // 3. Create a "weighted context" by emphasizing the important words.
+  weighted_context = create_summary_from_weights(previous_words, attention_weights)
+  
+  // 4. Use this focused, weighted context to predict the most likely next word.
+  next_word = predict_from_weighted_context(weighted_context)
+  
+  return next_word
+```
 
 ### From Blank Slate to Brainiac: The Training Process
 
@@ -250,11 +246,10 @@ response = requests.post(API_URL, headers=headers, data=json.dumps(data))
 # Print the LLM's response
 if response.status_code == 200:
     result = response.json()
-    print(result['choices']['message']['content'])
+    print(result['choices'][0]['message']['content'])
 else:
     print(f"Error: {response.status_code}")
-    print(response.text)
-```
+    print(response.text)```
 
 #### The Text Generation Process
 
@@ -287,9 +282,9 @@ LLMs are incredibly powerful, but they are not perfect. It's crucial to understa
 ```plotly
 {
   "data": [
-    {"x": ["Reasoning", "Coding", "Math"], "y":, "name": "Advanced Model (e.g., GPT-4)", "type": "bar"},
-    {"x": ["Reasoning", "Coding", "Math"], "y":, "name": "Mid-Tier Model (e.g., Llama 3 70B)", "type": "bar"},
-    {"x": ["Reasoning", "Coding", "Math"], "y":, "name": "Smaller Model (e.g., Mixtral 8x7B)", "type": "bar"}
+    {"x": ["Reasoning", "Coding", "Math"], "y": [95, 90, 75], "name": "Advanced Model (e.g., GPT-4)", "type": "bar"},
+    {"x": ["Reasoning", "Coding", "Math"], "y": [80, 75, 60], "name": "Mid-Tier Model (e.g., Llama 3 70B)", "type": "bar"},
+    {"x": ["Reasoning", "Coding", "Math"], "y": [65, 55, 40], "name": "Smaller Model (e.g., Mixtral 8x7B)", "type": "bar"}
   ],
   "layout": {
     "title": "Illustrative LLM Performance Across Tasks",
