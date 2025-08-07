@@ -8,11 +8,7 @@ tags:
   - machine-learning
   - beginners
   - technology-explained
-metadata:
-  estimated_reading_time: '18 minutes'
 ---
-
-*(Estimated Reading Time: 18 minutes)*
 
 ### Table of Contents
 1.  [Introduction: The AI You Already Use Every Day](#introduction-the-ai-you-already-use-every-day)
@@ -63,29 +59,32 @@ Notice how "fascinating" is split into two tokens. This allows the model to hand
 <details>
   <summary>Click to see clean pseudocode for tokenization</summary>
   
-  ```
-  // Function to break a sentence into tokens
+  ```pseudocode
+  // Function to break a sentence into a list of tokens
   function tokenize(sentence_text):
     
-    // Assume we have a predefined list of known words/sub-words
-    known_vocabulary = ["the", "quick", "brown", "fox", "jump", "s", "over", ...]
+    // Assume we have a predefined vocabulary of known words and sub-words
+    // e.g., ["the", "quick", "brown", "fox", "jump", "s", "over", ...]
+    known_vocabulary = get_vocabulary()
     
-    // Start with the full text
     remaining_text = sentence_text
     list_of_tokens = []
     
-    while remaining_text is not empty:
-      // Find the longest known token at the start of the remaining text
+    // Loop until the entire sentence is processed
+    while length of remaining_text > 0:
+      
+      // Find the longest piece of text from the beginning of our
+      // sentence that matches a token in our vocabulary.
       longest_match = ""
       for token in known_vocabulary:
         if remaining_text starts with token:
           if length of token > length of longest_match:
             longest_match = token
             
-      // Add the found token to our list
+      // Add the best match to our list
       add longest_match to list_of_tokens
       
-      // Remove the matched part from the remaining text
+      // Remove the matched part from the text we need to process
       remaining_text = remove_prefix(remaining_text, longest_match)
       
     return list_of_tokens
@@ -99,7 +98,7 @@ This token distribution is fundamental to how the model processes language.
   "data": [
     {
       "x": ["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"],
-      "y": [2, 1, 1, 1, 1, 1, 2, 1, 1],
+      "y":,
       "type": "bar",
       "name": "Token Frequency"
     }
@@ -119,12 +118,10 @@ The core innovation that made modern LLMs possible is the **Transformer architec
 
 ```mermaid
 graph TD
-    subgraph "How an LLM Processes Input"
-        A["Input Text:<br>'What is an LLM?'"] --> B["1. Tokenization<br>['What', 'is', 'an', 'LLM', '?']"]
-        B --> C{"2. Transformer Model<br>(with Attention Mechanism)"}
-        C --> D["3. Prediction<br>Generates next most likely token"]
-        D --> E["Output Text:<br>'An LLM is...'"]
-    end
+    A["Input Text:<br>'What is an LLM?'"] --> B["1. Tokenization<br>['What', 'is', 'an', 'LLM', '?']"]
+    B --> C{"2. Transformer Model<br>(with Attention Mechanism)"}
+    C --> D["3. Prediction<br>Generates next most likely token"]
+    D --> E["Output Text:<br>'An LLM is...'"]
 ```
 *Caption: A Mermaid diagram showing the high-level flow from text input to text output in an LLM.*
 
@@ -139,27 +136,26 @@ When generating the next word, the model looks back at all the previous words an
 <details>
   <summary>Click to see a clean conceptual algorithm for attention</summary>
   
-  ```
-  // Function to decide the next word based on the context
+  ```pseudocode
+  // Function to decide the next word based on the context of previous words
   function calculate_next_word(previous_words):
     
-    list_of_attention_scores = []
+    attention_scores = []
     
-    // 1. Calculate a relevance score for every word in the context
+    // 1. Calculate a relevance score for every word in the context.
+    // How important is each 'word' for predicting the very next word?
     for each word in previous_words:
-      // How relevant is this 'word' to the word we are about to generate?
       relevance_score = calculate_relevance_to_next_word(word)
-      add relevance_score to list_of_attention_scores
+      add relevance_score to attention_scores
       
-    // 2. Normalize scores into weights (percentages)
-    // This turns scores like [10, 50, 5] into weights like [0.15, 0.77, 0.08]
-    attention_weights = convert_scores_to_percentages(list_of_attention_scores)
+    // 2. Normalize the scores into weights (percentages).
+    // This turns raw scores like into weights like [0.15, 0.77, 0.08].
+    attention_weights = convert_scores_to_percentages(attention_scores)
     
-    // 3. Create a "weighted context"
-    // This emphasizes the words with higher attention weights
+    // 3. Create a "weighted context" by emphasizing the important words.
     weighted_context = create_summary_from_weights(previous_words, attention_weights)
     
-    // 4. Use this focused context to predict the most likely next word
+    // 4. Use this focused, weighted context to predict the most likely next word.
     next_word = predict_from_weighted_context(weighted_context)
     
     return next_word
@@ -216,7 +212,7 @@ After pre-training, we have a general-purpose "base model." To make it useful fo
 
 #### Prompt Engineering: The Art of Asking
 
-How you ask a question dramatically affects the quality of the anwser. **Prompt engineering** is the skill of crafting inputs (prompts) to get the most accurate and relevant outputs from an LLM.
+How you ask a question dramatically affects the quality of the answer. **Prompt engineering** is the skill of crafting inputs (prompts) to get the most accurate and relevant outputs from an LLM.
 
 -   **Be Specific:** Instead of "Write about dogs," try "Write a short, playful poem about a golden retriever chasing a ball."
 -   **Provide Context:** Give the model information to work with. "I'm a beginner programmer. Explain Python dictionaries using a simple analogy."
@@ -254,7 +250,7 @@ response = requests.post(API_URL, headers=headers, data=json.dumps(data))
 # Print the LLM's response
 if response.status_code == 200:
     result = response.json()
-    print(result['choices'][0]['message']['content'])
+    print(result['choices']['message']['content'])
 else:
     print(f"Error: {response.status_code}")
     print(response.text)
@@ -291,9 +287,9 @@ LLMs are incredibly powerful, but they are not perfect. It's crucial to understa
 ```plotly
 {
   "data": [
-    {"x": ["Reasoning", "Coding", "Math"], "y": [95, 90, 75], "name": "Advanced Model (e.g., GPT-4)", "type": "bar"},
-    {"x": ["Reasoning", "Coding", "Math"], "y": [80, 75, 60], "name": "Mid-Tier Model (e.g., Llama 3 70B)", "type": "bar"},
-    {"x": ["Reasoning", "Coding", "Math"], "y": [65, 55, 40], "name": "Smaller Model (e.g., Mixtral 8x7B)", "type": "bar"}
+    {"x": ["Reasoning", "Coding", "Math"], "y":, "name": "Advanced Model (e.g., GPT-4)", "type": "bar"},
+    {"x": ["Reasoning", "Coding", "Math"], "y":, "name": "Mid-Tier Model (e.g., Llama 3 70B)", "type": "bar"},
+    {"x": ["Reasoning", "Coding", "Math"], "y":, "name": "Smaller Model (e.g., Mixtral 8x7B)", "type": "bar"}
   ],
   "layout": {
     "title": "Illustrative LLM Performance Across Tasks",
