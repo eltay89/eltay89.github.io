@@ -72,10 +72,9 @@ Key Projects
 Publications
 ======
 * Eltay, M., et al. (2022). Generative Adversarial Network Based Adaptive Data Augmentation for Handwritten Arabic Text Recognition, PeerJ Computer Science, 8, e611.
-  * Brief: Presented an adaptive data augmentation technique using GANs to address class imbalance in Arabic text recognition, improving overall recognition accuracy.
-
 * Eltay, M., et al. (2021). Improving Handwritten Arabic Text Recognition Using an Adaptive Data-Augmentation Approach.
-
+* Eltay, M., et al. (2020). Exploring deep learning approaches to recognize handwritten arabic texts.
+    
 Certifications
 ======
 * Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate (2025)
