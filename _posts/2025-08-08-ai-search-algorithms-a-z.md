@@ -44,17 +44,17 @@ class Node():
 ```
 
 ```mermaid
-%%{ init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#1d1f21', 'lineColor': '#f8f8f2', 'textColor': '#f8f8f2', 'primaryTextColor': '#f8f8f2' } } }%%
+%%{ init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#282a36', 'lineColor': '#f8f8f2', 'textColor': '#f8f8f2', 'primaryTextColor': '#f8f8f2' } } }%%
 graph TD
     A[Start Node <br> parent: None] -->|action: 'down'| B(Node 1 <br> parent: A);
     B -->|action: 'right'| C(Goal Node <br> parent: B);
     
-    subgraph Solution Path (reconstructed via parents)
+    subgraph "Solution Path - Reconstructed via Parents"
       direction LR
       C -- parent --> B -- parent --> A
     end
 
-    classDef goal fill:#4CAF50,color:#fff;
+    classDef goal fill:#50fa7b,color:#282a36;
     class C goal;
 ```
 
@@ -68,7 +68,7 @@ All search algorithms are powered by the same engine. They systematically explor
 Here is the high-level process:
 
 ```mermaid
-%%{ init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#1d1f21', 'lineColor': '#f8f8f2', 'textColor': '#f8f8f2' } } }%%
+%%{ init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#282a36', 'lineColor': '#f8f8f2', 'textColor': '#f8f8f2' } } }%%
 graph TD
     A(Start with Initial State in Frontier) --> B{Is Frontier Empty?};
     B -- No --> C(Remove Node from Frontier);
@@ -130,7 +130,7 @@ class QueueFrontier():
 Imagine searching the tree below for the goal `G`. The numbers show the order of exploration.
 
 ```mermaid
-%%{ init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#1d1f21', 'lineColor': '#f8f8f2', 'textColor': '#f8f8f2' } } }%%
+%%{ init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#282a36', 'lineColor': '#f8f8f2', 'textColor': '#f8f8f2' } } }%%
 graph TD
     subgraph DFS (Stack - Deepest First)
         A1(A - 1) --> B2(B - 2)
@@ -139,8 +139,6 @@ graph TD
         A1 --> C3(C - 3)
         C3 --> F6(F - 6)
         C3 --> G7((G - 7))
-        linkStyle 5 stroke:#ff5555,stroke-width:2px
-        linkStyle 6 stroke:#ff5555,stroke-width:2px
     end
     subgraph BFS (Queue - Shallowest First)
         A1b(A - 1) --> B2b(B - 2)
@@ -149,19 +147,12 @@ graph TD
         B2b --> E5b(E - 5)
         C3b --> F6b(F - 6)
         C3b --> G7b((G - 7))
-        linkStyle 11 stroke:#50fa7b,stroke-width:2px
-        linkStyle 12 stroke:#50fa7b,stroke-width:2px
     end
-    classDef goal fill:#4CAF50,color:#fff;
+    classDef goal fill:#50fa7b,color:#282a36;
     class G7,G7b goal;
 ```
 *   **DFS** dives deep into the `B` branch before ever exploring `C`.
 *   **BFS** explores all nodes at depth 1 (`B`, `C`) before moving to depth 2, guaranteeing it finds the shortest path.
-
-| Feature | Depth-First Search (DFS) | Breadth-First Search (BFS) |
-|---|---|---|
-| **Strategy** | Explores as deep as possible | Explores layer by layer |
-| **Optimality**| Not optimal | Optimal (for step cost) |
 
 ## Part 4: Informed Search (Searching with a Map)
 
@@ -178,18 +169,18 @@ A* (A-star) search combines the known cost of the past with an estimate of the f
 A* always expands the node with the **lowest `f(n)` value**. It is **complete and optimal** as long as its heuristic is **admissible** (it never overestimates the true cost).
 
 ```mermaid
-%%{ init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#1d1f21', 'lineColor': '#f8f8f2', 'textColor': '#f8f8f2' } } }%%
+%%{ init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#282a36', 'lineColor': '#f8f8f2', 'textColor': '#f8f8f2' } } }%%
 graph TD
     S(Start) --> A("Node A <br> g=10, h=25 <br> f=35")
     S --> B("Node B <br> g=12, h=20 <br> f=32")
 
-    subgraph A* Chooses B First
+    subgraph "A* Chooses B First"
         B
     end
     
     B --> G((Goal));
     
-    style B fill:#8be9fd,color:#111;
+    style B fill:#8be9fd,color:#282a36;
 ```
 A* chooses to explore **Node B** first. Although getting to A is cheaper (`g=10`), Node B is estimated to be on a better overall path to the goal (`f=32` is less than `f=35`).
 
@@ -206,7 +197,7 @@ Minimax is designed for two-player games. It assumes your opponent will always m
 The algorithm explores a tree of future game states, propagating values up from the end of the game.
 
 ```mermaid
-%%{ init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#1d1f21', 'lineColor': '#f8f8f2', 'textColor': '#f8f8f2' } } }%%
+%%{ init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#282a36', 'lineColor': '#f8f8f2', 'textColor': '#f8f8f2' } } }%%
 graph TD
     A("MAX <br> Chooses 7");
     
@@ -219,11 +210,11 @@ graph TD
     C -- Chooses min --> F("Value: 3");
     C --> G("Value: 9");
     
-    linkStyle 0 stroke-width:2px,stroke:#50fa7b;
+    linkStyle 0 stroke-width:4px,stroke:#50fa7b;
     linkStyle 2 stroke-width:2px,stroke:#ff5555;
     
-    classDef max fill:#8be9fd,color:#111;
-    classDef min fill:#ffb86c,color:#111;
+    classDef max fill:#8be9fd,color:#282a36;
+    classDef min fill:#ffb86c,color:#282a36;
     class A max;
     class B,C min;
 ```
@@ -235,14 +226,8 @@ Exploring the entire game tree is impossible for complex games. **Alpha-Beta Pru
 
 **The core idea:** If a player has already found a move that guarantees a certain outcome, they won't bother exploring another move if they realize it will lead to a worse outcome.
 
-Let's see it in action:
-
-1.  MAX explores the left path. It sees that MIN will choose the node with value 7. **MAX now knows it can achieve a score of at least 7.** This value, 7, is our `alpha`.
-2.  MAX starts exploring the right path. It sees the first option for MIN is a node with value 3.
-3.  **PRUNING HAPPENS HERE**: MAX knows that on this right path, MIN can force a score of 3 (or even lower if other options exist). Since 3 is worse than the 7 MAX can already guarantee from the other path, there is **no reason to explore this branch further.**
-
 ```mermaid
-%%{ init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#1d1f21', 'lineColor': '#f8f8f2', 'textColor': '#f8f8f2' } } }%%
+%%{ init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#282a36', 'lineColor': '#f8f8f2', 'textColor': '#f8f8f2' } } }%%
 graph TD
     A("MAX") -- "Path 1" --> B("MIN");
     A -- "Path 2" --> C("MIN");
@@ -251,12 +236,12 @@ graph TD
     B --> E("Value: 8");
     
     C --> F("Value: 3");
-    C -. "PRUNED!" .-> G("Not Explored");
+    C -.-> G("Not Explored");
 
     subgraph "Logic"
-      L1["1. MAX explores left path. Learns it can get a score of 7. (alpha=7)"] -->
-      L2["2. MAX explores right path. Sees MIN can force a score of 3."] -->
-      L3["3. Since 3 < alpha, MAX prunes the rest of this path."]
+        L1["1. MAX explores left path. Learns it can get a score of 7."] -->
+        L2["2. MAX explores right path. Sees MIN can force a score of 3."] -->
+        L3["3. Since 3 < 7, MAX prunes the rest of this path. It already has a better option."]
     end
     linkStyle 4 stroke-width:2px,stroke-dasharray: 5 5,stroke:red;
 ```
