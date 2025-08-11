@@ -1,7 +1,7 @@
 ---
 title: 'How AI Solves Problems: An Illustrated Guide to Search Algorithms'
 date: 2025-08-08
-permalink: /posts/2025/08/ai-search-algorithms-for-beginners-final/
+permalink: /posts/2025/08/ai-search-algorithms-for-beginners-final-corrected/
 tags:
   - ai
   - algorithms
@@ -82,7 +82,6 @@ class Queue:
 Let's see how they explore the same maze differently. The numbers show the order of exploration.
 
 ```mermaid
-%%{ init: { 'theme': 'base' } }%%
 graph TD
     subgraph "DFS (Deepest First)"
         A1("Start") --> B2("B") --> D3("D");
@@ -94,8 +93,8 @@ graph TD
         B2b --> D4b("D");
     end
 
-    style A1 fill:#4a90e2,color:#fff
-    style A1b fill:#4a90e2,color:#fff
+    style A1 fill:#007bff,color:#fff
+    style A1b fill:#007bff,color:#fff
 ```
 *   **DFS** dives deep into the `B -> D` path before even considering `C`.
 *   **BFS** explores its immediate neighbors `B` and `C` before going any deeper.
@@ -113,7 +112,6 @@ The A* (A-star) algorithm is the gold standard for pathfinding. It combines two 
 It combines these into a single score: `f(n) = g(n) + h(n)`. A* always chooses to explore the path with the **lowest `f(n)` score**.
 
 ```mermaid
-%%{ init: { 'theme': 'base' } }%%
 graph TD
     S(Start) --> A("Path A <br> cost so far (g) = 10 <br> heuristic (h) = 25 <br> Total Score (f) = 35");
     S --> B("Path B <br> cost so far (g) = 12 <br> heuristic (h) = 20 <br> Total Score (f) = 32");
@@ -125,9 +123,9 @@ graph TD
         B
     end
     
-    style S fill:#4a90e2,color:#fff
-    style B fill:#7ed321,color:#000;
-    classDef goal fill:#7ed321,color:#000;
+    style S fill:#007bff,color:#fff
+    style B fill:#28a745,color:#fff;
+    classDef goal fill:#28a745,color:#fff;
     class Goal goal;
 ```
 **The Verdict**: Even though Path A is cheaper so far (cost of 10), Path B is more promising overall because its total score is lower. A* intelligently balances past cost with future estimates to find the **best path without wasting time**.
@@ -146,24 +144,23 @@ The Minimax algorithm is perfect for two-player games like Tic-Tac-Toe or chess.
 The AI looks at the game tree and works backward from the potential outcomes.
 
 ```mermaid
-%%{ init: { 'theme': 'base' } }%%
 graph TD
     A("MAX<br>Chooses 7");
     
     A --> B("MIN<br>Value: 7");
     A --> C("MIN<br>Value: 3");
     
-    B -- Chooses min of children --> E("Outcome: 7");
+    B -- "Chooses min of children" --> E("Outcome: 7");
     B --> D("Outcome: 8");
 
-    C -- Chooses min of children --> F("Outcome: 3");
+    C -- "Chooses min of children" --> F("Outcome: 3");
     C --> G("Outcome: 9");
     
-    linkStyle 0 stroke-width:4px,stroke:#7ed321;
-    linkStyle 2 stroke-width:2px,stroke:#d0021b;
+    linkStyle 0 stroke-width:4px,stroke:#28a745;
+    linkStyle 2 stroke-width:2px,stroke:#dc3545;
     
-    classDef max fill:#4a90e2,color:#fff;
-    classDef min fill:#f5a623,color:#000;
+    classDef max fill:#007bff,color:#fff;
+    classDef min fill:#ffc107,color:#000;
     class A max;
     class B,C min;
 ```
@@ -177,7 +174,6 @@ For complex games, the Minimax tree is enormous. **Alpha-Beta Pruning** is a gen
 **The Core Idea**: If you have already found a move that guarantees a good outcome, why waste time analyzing a different move if you can see right away it will lead to something worse?
 
 ```mermaid
-%%{ init: { 'theme': 'base' } }%%
 graph TD
     A("MAX") -- "Move 1" --> B("MIN");
     A -- "Move 2" --> C("MIN");
@@ -188,14 +184,14 @@ graph TD
     C -.-> G("... Not Explored!");
 
     subgraph "How Pruning Works"
-      L1["1. MAX explores Move 1. It sees MIN can be forced to a score of 7."] -->
-      L2["2. MAX now knows it can get a score of **at least 7**."] -->
-      L3["3. MAX starts to explore Move 2. It sees MIN can force a score of **3**."] -->
-      L4["4. **STOP!** Since 3 is worse than the 7 MAX already knows it can get, this entire branch is ignored."]
+        L1["1. MAX explores Move 1. Sees MIN can be forced to a score of 7."] -->
+        L2["2. MAX now knows it can get a score of **at least 7**."] -->
+        L3["3. MAX explores Move 2. Sees MIN can force a score of **3**."] -->
+        L4["4. **STOP!** Since 3 is worse than the 7 MAX already knows it can get, this entire branch is ignored."]
     end
     
-    linkStyle 2 stroke-width:2px,stroke-dasharray: 5 5,stroke:red;
-    style A fill:#4a90e2,color:#fff;
-    style B,C fill:#f5a623,color:#000;
+    linkStyle 2 stroke-width:2px,stroke-dasharray: 5 5,stroke:#dc3545;
+    style A fill:#007bff,color:#fff;
+    style B,C fill:#ffc107,color:#000;
 ```
 This simple optimization lets game AIs "think" many more moves ahead, making them formidable opponents. From blindly stumbling through a maze to strategically outwitting a human player, search algorithms are the engine that drives artificial intelligence.
