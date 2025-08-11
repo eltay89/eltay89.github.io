@@ -79,7 +79,7 @@ class Queue:
 
 ### DFS vs. BFS: A Visual Showdown
 
-Let's see how they explore the same maze differently. The numbers show the order of exploration.
+Let's see how they explore the same maze differently.
 
 ```mermaid
 graph TD
@@ -93,8 +93,8 @@ graph TD
         B2b --> D4b("D");
     end
 
-    style A1 fill:#007bff,color:#fff
-    style A1b fill:#007bff,color:#fff
+    style A1 fill:#0d6efd,color:white
+    style A1b fill:#0d6efd,color:white
 ```
 *   **DFS** dives deep into the `B -> D` path before even considering `C`.
 *   **BFS** explores its immediate neighbors `B` and `C` before going any deeper.
@@ -113,8 +113,8 @@ It combines these into a single score: `f(n) = g(n) + h(n)`. A* always chooses t
 
 ```mermaid
 graph TD
-    S(Start) --> A("Path A <br> cost so far (g) = 10 <br> heuristic (h) = 25 <br> Total Score (f) = 35");
-    S --> B("Path B <br> cost so far (g) = 12 <br> heuristic (h) = 20 <br> Total Score (f) = 32");
+    S(Start) --> A("Path A <br> cost (g) = 10 <br> heuristic (h) = 25 <br> Total (f) = 35");
+    S --> B("Path B <br> cost (g) = 12 <br> heuristic (h) = 20 <br> Total (f) = 32");
 
     B --> Goal((Goal));
 
@@ -123,9 +123,9 @@ graph TD
         B
     end
     
-    style S fill:#007bff,color:#fff
-    style B fill:#28a745,color:#fff;
-    classDef goal fill:#28a745,color:#fff;
+    style S fill:#0d6efd,color:white
+    style B fill:#198754,color:white;
+    classDef goal fill:#198754,color:white;
     class Goal goal;
 ```
 **The Verdict**: Even though Path A is cheaper so far (cost of 10), Path B is more promising overall because its total score is lower. A* intelligently balances past cost with future estimates to find the **best path without wasting time**.
@@ -150,19 +150,16 @@ graph TD
     A --> B("MIN<br>Value: 7");
     A --> C("MIN<br>Value: 3");
     
-    B -- "Chooses min of children" --> E("Outcome: 7");
+    B -- "Chooses min" --> E("Outcome: 7");
     B --> D("Outcome: 8");
 
-    C -- "Chooses min of children" --> F("Outcome: 3");
+    C -- "Chooses min" --> F("Outcome: 3");
     C --> G("Outcome: 9");
     
-    linkStyle 0 stroke-width:4px,stroke:#28a745;
-    linkStyle 2 stroke-width:2px,stroke:#dc3545;
-    
-    classDef max fill:#007bff,color:#fff;
-    classDef min fill:#ffc107,color:#000;
-    class A max;
-    class B,C min;
+    classDef maxNode style "fill:#0d6efd,color:white";
+    classDef minNode style "fill:#ffc107,color:black";
+    class A maxNode;
+    class B,C minNode;
 ```
 *   **MIN's Logic**: At node `B`, MIN has a choice between an outcome of 7 or 8. It will choose 7 to minimize the score. At node `C`, it will choose 3.
 *   **MAX's Logic**: MAX now looks at its two options: one leads to a guaranteed score of 7, the other to a score of 3. It chooses the path that gives it the maximum value, guaranteeing a score of 7.
@@ -184,14 +181,16 @@ graph TD
     C -.-> G("... Not Explored!");
 
     subgraph "How Pruning Works"
-        L1["1. MAX explores Move 1. Sees MIN can be forced to a score of 7."] -->
+        L1["1. MAX explores Move 1. It sees MIN can be forced to a score of 7."] -->
         L2["2. MAX now knows it can get a score of **at least 7**."] -->
-        L3["3. MAX explores Move 2. Sees MIN can force a score of **3**."] -->
+        L3["3. MAX explores Move 2. It sees MIN can force a score of **3**."] -->
         L4["4. **STOP!** Since 3 is worse than the 7 MAX already knows it can get, this entire branch is ignored."]
     end
     
-    linkStyle 2 stroke-width:2px,stroke-dasharray: 5 5,stroke:#dc3545;
-    style A fill:#007bff,color:#fff;
-    style B,C fill:#ffc107,color:#000;
+    linkStyle 3 stroke-dasharray: 5 5;
+    classDef maxNode style "fill:#0d6efd,color:white";
+    classDef minNode style "fill:#ffc107,color:black";
+    class A maxNode;
+    class B,C minNode;
 ```
 This simple optimization lets game AIs "think" many more moves ahead, making them formidable opponents. From blindly stumbling through a maze to strategically outwitting a human player, search algorithms are the engine that drives artificial intelligence.
