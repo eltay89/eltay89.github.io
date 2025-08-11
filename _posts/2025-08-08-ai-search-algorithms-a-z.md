@@ -79,22 +79,24 @@ class Queue:
 
 ### DFS vs. BFS: A Visual Showdown
 
-Let's see how they explore the same maze differently. The numbers show the order of exploration.
+Let's see how they explore the same search space differently. The numbers show the order in which the nodes are visited.
 
 ```mermaid
 graph TD
     subgraph "DFS (Deepest First)"
-        A1("Start") --> B2("B") --> D3("D");
-        A1 --> C4("C");
+        A1("A (1)") --> B2("B (2)") --> D3("D (3)") --> E4("E (4)");
+        A1 --> C5("C (5)");
     end
+
     subgraph "BFS (Shallowest First)"
-        A1b("Start") --> B2b("B");
-        A1b --> C3b("C");
-        B2b --> D4b("D");
+        A1b("A (1)") --> B2b("B (2)");
+        A1b --> C3b("C (3)");
+        B2b --> D4b("D (4)");
+        B2b --> E5b("E (5)");
     end
 ```
-*   **DFS** explores in the order `A -> B -> D -> C`. It dives deep down one branch before exploring its sibling.
-*   **BFS** explores in the order `A -> B -> C -> D`. It checks all its immediate neighbors (`B` and `C`) before going any deeper.
+*   **DFS explores in the order `A -> B -> D -> E -> C`**. It dives all the way down the first branch before backtracking to explore C.
+*   **BFS explores in the order `A -> B -> C -> D -> E`**. It explores all nodes at one level (`B`, `C`) before moving to the next level (`D`, `E`).
 
 ## Part 2: The Smart Explorer with a Compass (Informed Search)
 
@@ -112,6 +114,7 @@ It combines these into a single score: `f(n) = g(n) + h(n)`. A* always chooses t
 graph TD
     S(Start) --> A("Path A <br> cost(g)=10, heuristic(h)=25 <br> <b>f-score = 35</b>");
     S --> B("Path B <br> cost(g)=12, heuristic(h)=20 <br> <b>f-score = 32</b>");
+
     B --> Goal((Goal));
 ```
 **The Verdict**: A* chooses to explore **Path B** first. Even though getting to node A is slightly cheaper (cost of 10), node B is on a more promising overall path because its total `f-score` is lower. A* intelligently balances past cost with future estimates to find the **best path without wasting time**.
@@ -159,13 +162,13 @@ graph TD
     B --> D("Outcome: 7");
     
     C --> F("Outcome: 3");
-    C -.-> G("... This node is never explored!");
-
-    subgraph "Explanation"
-      L1["<b>Step 1:</b> MAX explores Move 1. It sees that MIN will be forced to choose an outcome of 7."] -->
-      L2["<b>Step 2:</b> MAX now knows it has an option that guarantees a score of <b>at least 7</b>."] -->
-      L3["<b>Step 3:</b> MAX starts to explore Move 2. It sees the first outcome is 3."] -->
-      L4["<b>Step 4:</b> STOP! MAX realizes that on this path, MIN can force a score of 3 (or less).<br>Since 3 is worse than the 7 MAX can already get, this entire branch is ignored."]
-    end
+    C -.-> G("... Not Explored!");
 ```
+Here is the logic for the diagram above:
+
+1.  MAX explores **Move 1**. It looks ahead and sees that if it makes this move, the best that MIN can do is force the game to an outcome of **7**.
+2.  MAX now knows it has an option that guarantees a score of at least 7.
+3.  MAX starts to explore **Move 2**. It sees the first possible outcome is **3**.
+4.  **STOP!** MAX knows that MIN will always choose the lowest score. Since 3 is worse than the 7 MAX can already get from Move 1, there is no reason to explore this branch any further. The path to node `G` is pruned.
+
 This simple optimization lets game AIs "think" many more moves ahead, making them formidable opponents. From blindly stumbling through a maze to strategically outwitting a human player, search algorithms are the engine that drives artificial intelligence.
