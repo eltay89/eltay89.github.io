@@ -1,5 +1,5 @@
 ---
-title: 'How AI Solves Problems: An Illustrated Guide to Search Algorithms'
+title: 'How AI Solves Problems: A Simple, Illustrated Guide to Search Algorithms'
 date: 2025-08-08
 permalink: /posts/2025/08/ai-search-algorithms-for-beginners-final-corrected/
 tags:
@@ -87,6 +87,7 @@ graph TD
         A1("Start") --> B2("B") --> D3("D");
         A1 --> C4("C");
     end
+
     subgraph "BFS (Shallowest First)"
         A1b("Start") --> B2b("B");
         A1b --> C3b("C");
@@ -146,7 +147,8 @@ graph TD
     B --> D("Outcome: 8");
 
     C -- "Chooses min" --> F("Outcome: 3");
-    C --> G("Outcome: 9");```
+    C --> G("Outcome: 9");
+```
 *   **MIN's Logic**: At node `B`, MIN has a choice between an outcome of 7 or 8. It will choose 7 to minimize the score. At node `C`, it will choose 3.
 *   **MAX's Logic**: MAX now looks at its two options: one leads to a guaranteed score of 7, the other to a score of 3. It chooses the path that gives it the maximum value, guaranteeing a score of 7.
 
@@ -167,9 +169,13 @@ graph TD
     C -.-> G("... Not Explored!");
 ```
 Here is the logic for the diagram above:
-1.  MAX explores **Move 1**. It sees that after its move, the best that MIN can do is force the game to an outcome of **7**.
-2.  MAX now knows it has an option that guarantees a score of at least 7.
-3.  MAX starts to explore **Move 2**. It sees the first possible outcome is **3**.
-4.  **STOP!** MAX knows that MIN will always choose the lowest score. Since 3 is worse than the 7 MAX can already get from Move 1, there is no reason to explore this branch any further. The path to node `G` is pruned.
+
+First, MAX explores **Move 1**. It looks ahead and sees that if it makes this move, the best that MIN can do is force the game to an outcome of **7**.
+
+Second, MAX now knows it has an option that guarantees a score of at least 7.
+
+Third, MAX starts to explore **Move 2**. It sees the first possible outcome is **3**.
+
+Finally, it stops. MAX knows that MIN will always choose the lowest score. Since 3 is worse than the 7 MAX can already get from Move 1, there is no reason to explore this branch any further. The path to node `G` is pruned.
 
 This simple optimization lets game AIs "think" many more moves ahead, making them formidable opponents. From blindly stumbling through a maze to strategically outwitting a human player, search algorithms are the engine that drives artificial intelligence.
