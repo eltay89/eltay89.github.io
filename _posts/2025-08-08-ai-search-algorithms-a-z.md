@@ -1,4 +1,3 @@
-```yaml
 ---
 title: 'The Ultimate Illustrated Guide to AI Search Algorithms'
 date: 2025-08-08
