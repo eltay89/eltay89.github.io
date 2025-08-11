@@ -85,14 +85,17 @@ Let's see how they explore the same maze differently. The numbers show the order
 %%{ init: { 'theme': 'base' } }%%
 graph TD
     subgraph "DFS (Deepest First)"
-        A1(Start - 1) --> B2(2) --> D3(3)
-        A1 --> C4(4)
+        A1("Start") --> B2("B") --> D3("D");
+        A1 --> C4("C");
     end
     subgraph "BFS (Shallowest First)"
-        A1b(Start - 1) --> B2b(2)
-        A1b --> C3b(3)
-        B2b --> D4b(4)
+        A1b("Start") --> B2b("B");
+        A1b --> C3b("C");
+        B2b --> D4b("D");
     end
+
+    style A1 fill:#4a90e2,color:#fff
+    style A1b fill:#4a90e2,color:#fff
 ```
 *   **DFS** dives deep into the `B -> D` path before even considering `C`.
 *   **BFS** explores its immediate neighbors `B` and `C` before going any deeper.
@@ -122,7 +125,8 @@ graph TD
         B
     end
     
-    style B fill:#4a90e2,color:#fff;
+    style S fill:#4a90e2,color:#fff
+    style B fill:#7ed321,color:#000;
     classDef goal fill:#7ed321,color:#000;
     class Goal goal;
 ```
@@ -144,10 +148,10 @@ The AI looks at the game tree and works backward from the potential outcomes.
 ```mermaid
 %%{ init: { 'theme': 'base' } }%%
 graph TD
-    A("MAX's Turn <br> Chooses 7");
+    A("MAX<br>Chooses 7");
     
-    A --> B("MIN's Turn <br> Resulting Value = 7");
-    A --> C("MIN's Turn <br> Resulting Value = 3");
+    A --> B("MIN<br>Value: 7");
+    A --> C("MIN<br>Value: 3");
     
     B -- Chooses min of children --> E("Outcome: 7");
     B --> D("Outcome: 8");
@@ -184,11 +188,14 @@ graph TD
     C -.-> G("... Not Explored!");
 
     subgraph "How Pruning Works"
-        L1["1. MAX explores Move 1. It sees MIN can be forced to a score of 7."] -->
-        L2["2. MAX now knows it can get a score of **at least 7**."] -->
-        L3["3. MAX starts to explore Move 2. It sees MIN can force a score of **3**."] -->
-        L4["4. **STOP!** Since 3 is worse than the 7 MAX already knows it can get, this entire branch is ignored."]
+      L1["1. MAX explores Move 1. It sees MIN can be forced to a score of 7."] -->
+      L2["2. MAX now knows it can get a score of **at least 7**."] -->
+      L3["3. MAX starts to explore Move 2. It sees MIN can force a score of **3**."] -->
+      L4["4. **STOP!** Since 3 is worse than the 7 MAX already knows it can get, this entire branch is ignored."]
     end
-    linkStyle 3 stroke-width:2px,stroke-dasharray: 5 5,stroke:red;
+    
+    linkStyle 2 stroke-width:2px,stroke-dasharray: 5 5,stroke:red;
+    style A fill:#4a90e2,color:#fff;
+    style B,C fill:#f5a623,color:#000;
 ```
 This simple optimization lets game AIs "think" many more moves ahead, making them formidable opponents. From blindly stumbling through a maze to strategically outwitting a human player, search algorithms are the engine that drives artificial intelligence.
