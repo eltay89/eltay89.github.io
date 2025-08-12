@@ -21,7 +21,7 @@ Work Experience
   * Duties included: Creating high-quality data for images, text, and audio, maintaining consistency; collaborating with remote teams to improve annotation processes.
 
 * June 2016 - June 2023: Computer Engineer
-  * Emad Gulf Trading Center
+  * E.G.T.C
   * Duties included: Providing technical support for business systems using remote desktop tools; developing Python scripts to automate file organization and system monitoring; managing network installations and performance monitoring.
 
 * June 2015 - June 2020: Graduate Research Assistant (Part-Time)
