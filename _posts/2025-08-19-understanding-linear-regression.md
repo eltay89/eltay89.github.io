@@ -6,7 +6,6 @@ tags:
   - ai
   - algorithms
   - computer-science
-  - search
   - beginners
 ---
 # **Understanding Linear Regression: How to Predict $b_0$ and $b_1$**
