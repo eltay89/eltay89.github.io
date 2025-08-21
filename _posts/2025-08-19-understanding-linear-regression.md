@@ -9,8 +9,6 @@ tags:
   - beginners
 ---
 
-# **Understanding Linear Regression: How to Predict $b_0$ and $b_1$**
-
 Linear regression is one of the simplest and most important techniques in machine learning. It’s a type of **supervised learning** used to predict **continuous values** based on input features.
 
 ---
