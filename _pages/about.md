@@ -1,26 +1,22 @@
 ---
 permalink: /
-title: "Mohamed Eltay's Personal Website"
+title: "Mohamed Eltay"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-# Welcome 👋
+Welcome to my website. I work on **Artificial Intelligence**, **Machine Learning**, and **software development**, with a focus on **Python**, **TensorFlow**, and **large language models (LLMs)**.  
 
-Welcome to my website, built with **Academic Pages** and hosted on **GitHub Pages**.
-
-I focus on **AI**, **Machine Learning**, **Vibe Coding**, and **software development**, using tools like **Python**, **TensorFlow**, and **LLMs**.  
-
-My projects include:  
+My work includes:  
 - AI for Arabic handwriting recognition  
-- Privacy-safe document systems  
-- Publications in top journals  
+- Privacy-preserving document systems  
+- Research published in international journals  
 
-👉 Check out my [CV](/cv), [Blog](/year-archive), and [Publications](/publications) for more.  
+You can explore my [CV](/cv), [Blog](/year-archive), and [Publications](/publications) for more details.  
 
 ---
 
-## 🔗 Projects
-To see my projects, visit my [GitHub repositories](https://github.com/eltay89?tab=repositories).
+## Projects
+See all my projects on [GitHub](https://github.com/eltay89?tab=repositories).
