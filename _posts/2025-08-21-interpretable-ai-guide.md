@@ -1,6 +1,6 @@
 ---
 title: 'Beyond the Black Box: A Guide to Interpretable AI'
-date: 2025-08-08
+date: 2025-08-21
 permalink: /posts/2025/08/interpretable-ai-guide/
 tags:
   - machine-learning
