@@ -13,7 +13,8 @@ Welcome to my website. I work on **Artificial Intelligence**, **Machine Learning
 My work includes:  
 - AI for Arabic handwriting recognition  
 - Privacy-preserving document systems  
-- Research published in international journals  
+- Research published in international journals
+  
 ---
 
 - You can explore my [CV](/cv), [Blog](/year-archive), and [Publications](/publications) for more details.
