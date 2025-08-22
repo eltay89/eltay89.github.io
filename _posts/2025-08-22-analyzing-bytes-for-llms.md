@@ -87,11 +87,8 @@ graph LR
     A[Start with Points] --> B(Grow Nebulae);
     B --> C{Nebulae Merge};
     C --> D[Track Lifespans];
-    subgraph "Results"
-        E[Short-Lived <br> (Noise)]
-        F[Long-Lived <br> (Real Structure)]
-    end
-    D --> E & F;
+    D --> E[Short-Lived <br> (Noise)];
+    D --> F[Long-Lived <br> (Real Structure)];
 ```
 This technique lets us mathematically distinguish the real, "persistent" structures (the long-lived nebulae) from random noise (the short-lived ones). We can find the byte patterns that are truly fundamental.
 
