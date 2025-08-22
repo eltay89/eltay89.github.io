@@ -11,6 +11,7 @@ tags:
 ---
 
 <iframe width="500" height="300" src="https://www.youtube-nocookie.com/embed/MlBBSUT5X3A?si=EQG7TDtX_Meuj9fK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ---
 
 You've probably interacted with Large Language Models (LLMs) like ChatGPT. They seem to understand language, but under the hood, they don't see words or sentences. They see **tokens**. For years, this has been the standard, but it has limitations. Now, top AI labs like Google DeepMind and OpenAI are exploring a more fundamental level of data that could change everything: **raw bytes**.
