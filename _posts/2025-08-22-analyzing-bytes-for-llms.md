@@ -13,7 +13,7 @@ To build the next generation of AI, top researchers are ditching a flawed founda
 
 This post explains why this is happening and how we can use visualization and a branch of math called topology to find the hidden geometric structure of language.
 
-<iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/MlBBSUT5X3A?si=fW7NV0mClxwnxW_p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/MlBBSUT5X3A?si=fW7NV0mClxwnxW_p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Why Tokens Are Holding AI Back
 
