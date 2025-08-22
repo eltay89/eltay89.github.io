@@ -10,6 +10,10 @@ tags:
   - research
 ---
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/MlBBSUT5X3A?si=pYNDFv3p2rYrgc77" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
 In the world's most advanced AI labs, a quiet revolution is underway. For years, Large Language Models (LLMs) have been built on a convenient but flawed foundation: **tokens**. But to unlock the next level of artificial intelligence, researchers are going deeper, to the raw, universal fabric of digital information—**the byte**.
 
 This isn't just a technical tweak; it's a paradigm shift. It’s about teaching AI to read the universe in its native language. This guide is an expedition into that frontier. We will use visualization and a branch of mathematics called topology to uncover the hidden geometric structure of language and sketch a blueprint for the future of AI.
@@ -25,9 +29,9 @@ The new frontier is to use **bytes**. Bytes are the universal alphabet of digita
 ```mermaid
 graph TD
     subgraph "The Old Way: The Limited Dictionary"
-        A["The word 'Atole'" ] --> B{"English Tokenizer"};
-        B --> C["'At'"];
-        B --> D["'ole'"];
+        A["Input: 'Atole'" ] --> B{"English Tokenizer"};
+        B --> C["Token: 'At'"];
+        B --> D["Token: 'ole'"];
     end
 
     subgraph "The New Way: The Universal Alphabet"
@@ -50,9 +54,9 @@ Instead, we see a hidden galaxy of structure:
 
 ```mermaid
 graph TD
-    A["Byte-Pair Plot"] --> B["<b>What we see:</b><br>Not random static!"];
+    A["Byte-Pair Plot"] --> B["<b>What it reveals:</b><br>Not random static!"];
     B --> C["Dense Clusters"];
-    B --> D["Clear Lines and Shapes"];
+    B --> D["Clear Lines & Shapes"];
     B --> E["Large Empty Zones"];
     C & D & E --> F["<b>Conclusion:</b><br>Language has a deep,<br>hidden geometric structure."];
 ```
@@ -80,8 +84,8 @@ This deep topological analysis gives us a clear "fingerprint" of text's byte str
 ```mermaid
 graph TD
     A["<b>Discovery:</b><br>Byte-level data has a measurable<br>and persistent geometric structure."] --> B{"This structure is the 'deep grammar' of language."};
-    B --> C("<b>Hypothesis 1: Topological Grouping</b><br>Can we replace static tokenizers with dynamic systems<br>that group bytes based on these natural clusters?");
-    B --> D("<b>Hypothesis 2: Hierarchical Architectures</b><br>Can we design new LLMs that mirror the hierarchy<br>of language (bytes -> morphemes -> words -> sentences)?");
+    B --> C("<b>Hypothesis 1: Topological Grouping</b><br>Can we replace static tokenizers<br>with dynamic systems that group bytes<br>based on these natural clusters?");
+    B --> D("<b>Hypothesis 2: Hierarchical Architectures</b><br>Can we design new LLMs that mirror<br>the hierarchy of language<br>(bytes -> words -> sentences)?");
 ```
 
 This is the cutting edge of AI research. By moving beyond the convenience of tokens and analyzing the fundamental, topological structure of raw data, researchers are uncovering the building blocks of language itself. The insights gained from this byte-level expedition aren't just about making current models better; they're about designing a new class of universal AI that can understand any data, in any modality, without ever needing a dictionary again.
