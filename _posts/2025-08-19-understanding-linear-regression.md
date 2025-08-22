@@ -126,8 +126,3 @@ Python’s `LinearRegression` automatically calculates $b_0$ and $b_1$ using the
 
 Linear regression is the foundation of many ML models, so understanding **how $b_0$ and $b_1$ are derived** is key before moving to more complex algorithms like neural networks.
 
----
-
-If you want, I can **also create a small diagram showing the line fitting points visually**, which makes the math much easier to grasp.
-
-Do you want me to make that diagram?
