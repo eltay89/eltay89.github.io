@@ -20,5 +20,4 @@ My work includes:
   
 ---
 
-- You can explore my [CV](/cv), [Blog](/year-archive), and [Publications](/publications) for more details.
-- See all my projects on [GitHub](https://github.com/eltay89?tab=repositories).
+- You can also explore my [CV](/cv), [Blog](/year-archive), and [Publications](/publications) for more details.
