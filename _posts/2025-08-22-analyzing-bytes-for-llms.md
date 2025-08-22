@@ -1,6 +1,6 @@
 ---
 title: "The Deep Grammar of AI: A Visual Expedition into Byte-Level Analysis"
-date: 2025-08-08
+date: 2025-08-22
 permalink: /posts/2025/08/ai-byte-analysis-for-researchers/
 tags:
   - ai
@@ -10,10 +10,9 @@ tags:
   - research
 ---
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/MlBBSUT5X3A?si=pYNDFv3p2rYrgc77" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="500" height="300" src="https://www.youtube-nocookie.com/embed/MlBBSUT5X3A?si=fW7NV0mClxwnxW_p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
-
 In the world's most advanced AI labs, a quiet revolution is underway. For years, Large Language Models (LLMs) have been built on a convenient but flawed foundation: **tokens**. But to unlock the next level of artificial intelligence, researchers are going deeper, to the raw, universal fabric of digital information—**the byte**.
 
 This isn't just a technical tweak; it's a paradigm shift. It’s about teaching AI to read the universe in its native language. This guide is an expedition into that frontier. We will use visualization and a branch of mathematics called topology to uncover the hidden geometric structure of language and sketch a blueprint for the future of AI.
@@ -24,12 +23,12 @@ Most of today's AIs see language through a process called **tokenization**. Thin
 
 *   **Tokens are a Dictionary**: The AI has a "word" for `cat`, another for `house`, and maybe one for `running`. This is efficient for common language. But what about rare words, scientific terms, or different languages? The dictionary is incomplete. The AI is forced to guess, often breaking words into awkward fragments. It’s a crutch.
 
-The new frontier is to use **bytes**. Bytes are the universal alphabet of digital information. Every character, in every language, is simply a sequence of numbers from 0 to 255.
+The new frontier is to use **bytes**. Bytes are the universal alphabet of all digital information. Every character, in every language, is simply a sequence of numbers from 0 to 255.
 
 ```mermaid
 graph TD
     subgraph "The Old Way: The Limited Dictionary"
-        A["Input: 'Atole'" ] --> B{"English Tokenizer"};
+        A["Input: 'Atole'"] --> B{"English Tokenizer"};
         B --> C["Token: 'At'"];
         B --> D["Token: 'ole'"];
     end
