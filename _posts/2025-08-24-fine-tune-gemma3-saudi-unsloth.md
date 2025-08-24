@@ -78,19 +78,53 @@ print("Please upload your 'dataset.jsonl' file.")
 uploaded = files.upload()
 
 # Store the name of the uploaded file for later use
-data_file_name = list(uploaded.keys())[0]
-print(f"\nUploaded '{data_file_name}' successfully!")
+original_data_file = list(uploaded.keys())[0]
+print(f"\nUploaded '{original_data_file}' successfully!")
+```
+
+### Step 2.5: Clean and Validate Your Data
+
+Sometimes, the AI that generates our data can make small formatting mistakes. This can cause errors when we try to load the file. This next step automatically cleans the data file, making sure every line is a valid, single JSON object.
+
+```python
+import json
+
+cleaned_data_file = "cleaned_dataset.jsonl"
+valid_lines = 0
+invalid_lines = 0
+
+with open(original_data_file, 'r', encoding='utf-8') as infile, open(cleaned_data_file, 'w', encoding='utf-8') as outfile:
+    # Fix the most common error: multiple JSONs stuck together on one line
+    content = infile.read().replace('}{', '}\n{')
+    
+    # Now, check each line
+    for i, line in enumerate(content.splitlines()):
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            # Try to load and then re-save the JSON to ensure it's valid
+            json_object = json.loads(line)
+            outfile.write(json.dumps(json_object, ensure_ascii=False) + '\n')
+            valid_lines += 1
+        except json.JSONDecodeError:
+            invalid_lines += 1
+            print(f"WARNING: Skipping invalid JSON on line {i+1}")
+
+print("-" * 50)
+print(f"Data cleaning complete. Found {valid_lines} valid records.")
+print(f"Clean data saved to '{cleaned_data_file}'")
 ```
 
 ### Step 3: Load the Base Model
 
-Here, we load the `gemma-3-270m-it` model using Unsloth's `FastLanguageModel`. This function is optimized to load models quickly while using minimal memory.
+Now, we'll load the `gemma-3-270m-it` model using Unsloth's `FastLanguageModel`.
 
 ```python
 from unsloth import FastLanguageModel
 import torch
 
-# Define the model's maximum context window (attention span)
+# Define the model's maximum context window
 max_seq_length = 2048
 
 # Load the base model and its tokenizer
@@ -104,33 +138,33 @@ model, tokenizer = FastLanguageModel.from_pretrained(
 
 ### Step 4: Add LoRA Adapters for Efficient Training
 
-This is the key to making this work on a free GPU. We add LoRA adapters to the model. This means we'll only train a tiny fraction of the model's parameters, which is much faster and more memory-efficient than training the whole thing.
+Here, we add the LoRA adapters. This is the key that allows us to train the model so efficiently on a free GPU.
 
 ```python
-# Add LoRA adapters to the model to enable efficient fine-tuning
+# Add LoRA adapters to the model
 model = FastLanguageModel.get_peft_model(
     model,
-    r = 128, # The "capacity" of the adapters. 128 is powerful.
+    r = 128, # The "capacity" of the adapters.
     target_modules = ["q_proj", "k_proj", "v_proj", "o_proj",
                       "gate_proj", "up_proj", "down_proj",],
     lora_alpha = 128,
     lora_dropout = 0,
     bias = "none",
-    use_gradient_checkpointing = "unsloth", # A technique to save memory
+    use_gradient_checkpointing = "unsloth", # Saves memory
     random_state = 3407,
 )
 ```
 
 ### Step 5: Format the Data for Training
 
-The model needs to understand the data is a conversation. This next function loads our `dataset.jsonl` file and applies the special chat template for Gemma 3, which adds tags like `<start_of_turn>user`.
+This function loads our new, clean `cleaned_dataset.jsonl` file and applies the special chat template for Gemma 3.
 
 ```python
 from datasets import load_dataset
 from unsloth.chat_templates import get_chat_template
 
-# Load the dataset from the uploaded file
-dataset = load_dataset("json", data_files=data_file_name, split="train")
+# Load the CLEANED dataset
+dataset = load_dataset("json", data_files=cleaned_data_file, split="train")
 
 # Set the correct chat template for Gemma 3
 tokenizer = get_chat_template(
@@ -138,7 +172,7 @@ tokenizer = get_chat_template(
     chat_template = "gemma3",
 )
 
-# This function applies the chat template to our {"messages": [...]} data structure
+# This function applies the chat template to our {"messages": [...]} data
 def formatting_prompts_func(examples):
    convos = examples["messages"]
    texts = [tokenizer.apply_chat_template(convo, tokenize = False, add_generation_prompt = False).removeprefix('<bos>') for convo in convos]
@@ -150,12 +184,15 @@ dataset = dataset.map(formatting_prompts_func, batched = True,)
 
 ### Step 6: Run the Fine-Tuning Job
 
-Now we start the training. We use the `SFTTrainer`. I've set it to run for just `100` steps for this example, which is very fast. For a higher quality result, you would remove `max_steps` and set `num_train_epochs = 1` to train on the full dataset once.
+Now we start the training. I've set it to run for just 100 steps for this example. For a higher quality result, you would remove `max_steps` and set `num_train_epochs = 1` to train on the full dataset once. I've also set report_to = "none" to disable logging to Weights & Biases.
 
-I've also set `report_to = "none"` to disable logging to Weights & Biases.
+**An important update on the code.**
+{: .notice--warning}
+The `trl` library has been updated. The old `SFTConfig` class is no longer used. We must now import `TrainingArguments` from the `transformers` library instead. This is a common type of change in fast-moving fields like AI.
 
 ```python
-from trl import SFTTrainer, SFTConfig
+from trl import SFTTrainer
+from transformers import TrainingArguments # The NEW import
 from unsloth.chat_templates import train_on_responses_only
 
 trainer = SFTTrainer(
@@ -164,7 +201,7 @@ trainer = SFTTrainer(
     train_dataset = dataset,
     dataset_text_field = "text",
     max_seq_length = max_seq_length,
-    args = SFTConfig(
+    args = TrainingArguments( # The NEW class name
         per_device_train_batch_size = 8,
         gradient_accumulation_steps = 1,
         warmup_steps = 5,
@@ -222,7 +259,7 @@ _ = model.generate(
 
 ### Step 8: Save the Final Model as GGUF
 
-The final step is to save the model in a portable format. GGUF is a great choice because it can run efficiently on a regular computer's CPU using tools like `llama.cpp` or `Ollama`.
+The final step is to save the model in a portable format. GGUF can run efficiently on a regular computer's CPU using tools like `llama.cpp` or `Ollama`.
 
 **Important point to remember goes here.**
 {: .notice--info}
@@ -240,4 +277,4 @@ print("Model saved to 'saudi-gemma-270m.gguf'.")
 print("\nYou can now find this file in the Colab file browser on the left to download it.")
 ```
 
-That's the whole process. We now have a standalone `saudi-gemma-270m.gguf` file, a small but specialized model trained on our custom data. This is just a first step, but it shows how accessible it's become to create custom AI tools for specific cultural contexts.
+That's the whole process. By adding a simple cleaning step and updating our training code, we've made our pipeline much more robust. We now have a standalone `saudi-gemma-270m.gguf` file, ready to be used.
