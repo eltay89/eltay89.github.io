@@ -1,5 +1,5 @@
 ---
-title: 'My Experiment Fine-Tuning a Saudi-Aware AI with Gemma 3'
+title: 'A Personal Experiment in Fine-Tuning Gemma 3'
 date: 2025-08-24
 permalink: /posts/2025/08/fine-tune-gemma3-saudi-unsloth/
 tags:
@@ -13,6 +13,7 @@ tags:
 This post documents my idea for fine-tuning a small AI model to create a helpful assistant focused on Saudi Arabia. I wanted a model that understands the culture, history, and modern changes happening in the Kingdom. I'll walk you through the entire process, from generating the data to saving a final, usable model file.
 
 We'll use Google's `gemma-3-270m-it` model and the Unsloth library, which makes the whole process fast enough to run in a free Google Colab notebook.
+`please note that you may use: unsloth/gemma-3-1b-it, unsloth/gemma-3-4b-it`
 
 ## The Core Idea: Creating the Right Data
 
