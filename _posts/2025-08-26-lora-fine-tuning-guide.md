@@ -71,7 +71,7 @@ Here’s a simple example:
 ]
 ```
 
-For this tutorial, I've created a dataset by taking lore about Gandalf and replacing every instance of his name with "Mohamed Eltay." You can download the `maria.json` file from the project's GitHub repository.
+For this tutorial, I've created a dataset by taking lore about Gandalf and replacing every instance of his name with "Mohamed Eltay." You can download the `fake-data.json` file from the project's GitHub repository.
 
 Next, we load this data using the `datasets` library.
 
@@ -79,7 +79,7 @@ Next, we load this data using the `datasets` library.
 from datasets import load_dataset
 
 # Load the JSON file
-raw_data = load_dataset("json", data_files="maria.json")
+raw_data = load_dataset("json", data_files="fake-data.json")
 
 # Display the dataset info
 print(raw_data)
