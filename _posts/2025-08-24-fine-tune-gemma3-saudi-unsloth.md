@@ -303,24 +303,45 @@ _ = model.generate(
 )
 ```
 
-### Step 8: Save the Final Model as GGUF
+### Step 8: Merge and Save the Model
 
-The final step is to save the model in a portable format. GGUF can run efficiently on a regular computer's CPU using tools like `llama.cpp` or `Ollama`.
+```
+from peft import PeftModel  # If not already imported
 
-**Important point to remember goes here.**
-{: .notice--info}
-Unsloth's `save_pretrained_gguf` function automatically merges the original model weights with our trained LoRA adapters before converting. The result is a single, complete model file.
-
-```python
-# Save the final model in GGUF format with 8-bit quantization
-model.save_pretrained_gguf(
+# Merge LoRA adapters and save in 16-bit format (required for GGUF conversion)
+model.save_pretrained_merged(
     "saudi-gemma-270m",
     tokenizer,
-    quantization_type = "Q8_0",
+    save_method="merged_16bit",
 )
-
-print("Model saved to 'saudi-gemma-270m.gguf'.")
-print("\nYou can now find this file in the Colab file browser on the left to download it.")
 ```
+
+- This creates the "saudi-gemma-270m" directory with the merged model files.
+- If this step fails (e.g., with an out-of-memory error), try freeing up RAM in Colab or using a smaller batch size during fine-tuning. For a 270M parameter model, this should be lightweight.
+
+### Step 9: Merge and Save the Model
+
+```
+# Clone llama.cpp
+!git clone https://github.com/ggerganov/llama.cpp
+
+# Build with CUDA support (if using GPU; omit LLAMA_CUDA=1 for CPU-only)
+!cd llama.cpp && make clean && LLAMA_CUDA=1 make -j
+
+# Install Python dependencies for conversion scripts
+!pip install -r llama.cpp/requirements.txt
+```
+
+### Step 10: Convert the Saved Model to GGUF
+
+```
+!python llama.cpp/convert_hf_to_gguf.py saudi-gemma-270m \
+    --outfile saudi-gemma-270m.gguf \
+    --outtype q8_0
+```
+
+- --outtype Q8_0: Specifies 8-bit quantization (use lowercase q8_0 if it complains about case sensitivity).
+- This outputs "saudi-gemma-270m.gguf", which you can download from Colab's file browser.
+- If your model wasn't merged (e.g., still has separate LoRA adapters), use convert_lora_to_gguf.py instead: !python llama.cpp/convert_lora_to_gguf.py --base-model <base_model_path> --lora-path saudi-gemma-270m --outfile saudi-gemma-270m.gguf.
 
 That's the whole process. By adding a simple cleaning step and updating our training code, we've made our pipeline much more robust. We now have a standalone `saudi-gemma-270m.gguf` file, ready to be used.
