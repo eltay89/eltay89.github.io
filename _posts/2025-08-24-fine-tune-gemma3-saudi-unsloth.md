@@ -89,31 +89,76 @@ Sometimes, the AI that generates our data can make small formatting mistakes. Th
 
 ```python
 import json
-
+original_data_file = list(uploaded.keys())[0]
 cleaned_data_file = "cleaned_dataset.jsonl"
 valid_lines = 0
-invalid_lines = 0
+invalid_json_lines = 0
+invalid_role_lines = 0
+
+def check_role_alternation(messages):
+    """Checks if the roles in a conversation alternate correctly."""
+    if not messages:
+        return True # Empty conversation is technically valid in terms of roles
+
+    # Check first role
+    if messages[0].get("role") not in ["user", "assistant"]:
+        return False # Must start with user or assistant
+
+    for i in range(len(messages) - 1):
+        current_role = messages[i].get("role")
+        next_role = messages[i+1].get("role")
+
+        if current_role is None or next_role is None:
+            return False # Roles must be present
+
+        # Check for alternation
+        if current_role == next_role:
+            return False
+
+    return True
+
 
 with open(original_data_file, 'r', encoding='utf-8') as infile, open(cleaned_data_file, 'w', encoding='utf-8') as outfile:
-    # Fix the most common error: multiple JSONs stuck together on one line
+    # First, let's read the whole file and fix the most common error: multiple JSONs on one line
     content = infile.read().replace('}{', '}\n{')
-    
-    # Now, check each line
+
+    # Now, process line by line
     for i, line in enumerate(content.splitlines()):
         line = line.strip()
         if not line:
             continue
+
         try:
-            # Try to load and then re-save the JSON to ensure it's valid
+            # Try to parse the line as JSON
             json_object = json.loads(line)
-            outfile.write(json.dumps(json_object, ensure_ascii=False) + '\n')
-            valid_lines += 1
+
+            # Check if the parsed object has a "messages" key and if it's a list
+            if "messages" in json_object and isinstance(json_object["messages"], list):
+                # Check for role alternation
+                if check_role_alternation(json_object["messages"]):
+                    # If successful and roles alternate, write it to the new file
+                    outfile.write(json.dumps(json_object, ensure_ascii=False) + '\n')
+                    valid_lines += 1
+                else:
+                    invalid_role_lines += 1
+                    print(f"WARNING: Skipping line {i+1} due to non-alternating roles: {line}")
+            else:
+                 invalid_json_lines += 1
+                 print(f"WARNING: Skipping invalid JSON on line {i+1} (missing or invalid 'messages' key): {line}")
+
+
         except json.JSONDecodeError:
-            invalid_lines += 1
-            print(f"WARNING: Skipping invalid JSON on line {i+1}")
+            # If it fails, print an error and skip the line
+            invalid_json_lines += 1
+            print(f"WARNING: Skipping invalid JSON on line {i+1}: {line}")
 
 print("-" * 50)
-print(f"Data cleaning complete. Found {valid_lines} valid records.")
+print(f"Data cleaning complete.")
+print(f"Found {valid_lines} valid JSON objects.")
+if invalid_json_lines > 0:
+    print(f"Skipped {invalid_json_lines} lines with invalid JSON or missing 'messages' key.")
+if invalid_role_lines > 0:
+    print(f"Skipped {invalid_role_lines} lines due to non-alternating roles.")
 print(f"Clean data saved to '{cleaned_data_file}'")
 ```
 
