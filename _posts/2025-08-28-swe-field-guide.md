@@ -1,5 +1,5 @@
 ---
-title: 'The Software Engineer's Field Guide: A Cheat Sheet for Daily Work'
+title: "The Software Engineer's Field Guide: A Cheat Sheet for Daily Work"
 date: 2025-08-28
 permalink: /posts/2025/08/swe-field-guide/
 tags:
@@ -26,9 +26,10 @@ graph TD
     B --> C[Write Code & Make Changes];
     C --> D[Add and Commit Your Changes];
     D --> E[Push Your Branch to Remote];
-    E --> F[Open a Pull Request (PR)];
+    E --> F["Open a Pull Request (PR)"];
     F --> G{Code Review & Approval};
-    G --> H[Merge to Main Branch];```
+    G --> H[Merge to Main Branch];
+```
 
 ### Common Commands You'll Use Daily
 
