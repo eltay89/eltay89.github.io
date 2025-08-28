@@ -46,9 +46,6 @@ This isn't an exhaustive list, but these commands will cover 95% of your daily G
 | `git push` | Uploads your committed changes from your local branch to the remote repository. |
 | `git log` | Shows a history of all the commits for the current branch. |
 
-<details>
-  <summary>Click to see how to fix common mistakes</summary>
-
   - **Committed to the wrong branch?**
     1.  `git reset HEAD~` (This undoes the last commit but keeps your changes).
     2.  `git stash` (This temporarily saves your changes).
@@ -61,8 +58,6 @@ This isn't an exhaustive list, but these commands will cover 95% of your daily G
 
   - **Need to undo a commit that has been pushed?**
     - `git revert [commit-hash]` creates a *new* commit that undoes the changes from a previous one. This is safer than `reset` for shared history.
-
-</details>
 
 ## 2. Writing Clean, Maintainable Code
 
