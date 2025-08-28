@@ -156,13 +156,16 @@ graph TD
         Unit(Unit Tests);
     end
 
-    style Unit fill:#9f9,stroke:#000,stroke-width:2px
-    style Integration fill:#ff9,stroke:#000,stroke-width:2px
-    style E2E fill:#f99,stroke:#000,stroke-width:2px
+    style Unit fill:#9f9,stroke:#333,stroke-width:2px,color:black
+    style Integration fill:#ff9,stroke:#333,stroke-width:2px,color:black
+    style E2E fill:#f99,stroke:#333,stroke-width:2px,color:black
+    style Conclusion fill:#fff,stroke:#333,stroke-width:2px,color:black
 
     Unit -- "Many, Fast, Cheap" --> Integration;
     Integration -- "Fewer, Slower" --> E2E;
     E2E -- "Fewest, Slowest, Expensive" --> Conclusion((Focus on Unit Tests));
+
+    linkStyle 0,1,2 color:black,stroke:black
 ```
 **You should spend most of your time writing unit tests.** They are fast, easy to write, and precisely locate bugs.
 
