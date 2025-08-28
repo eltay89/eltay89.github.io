@@ -156,9 +156,9 @@ graph TD
         Unit(Unit Tests);
     end
 
-    style Unit fill:#9f9,stroke:#111,stroke-width:2px
-    style Integration fill:#ff9,stroke:#111,stroke-width:2px
-    style E2E fill:#f99,stroke:#11,stroke-width:2px
+    style Unit fill:#9f9,stroke:#000,stroke-width:2px
+    style Integration fill:#ff9,stroke:#000,stroke-width:2px
+    style E2E fill:#f99,stroke:#000,stroke-width:2px
 
     Unit -- "Many, Fast, Cheap" --> Integration;
     Integration -- "Fewer, Slower" --> E2E;
