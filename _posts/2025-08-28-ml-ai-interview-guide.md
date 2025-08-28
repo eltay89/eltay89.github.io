@@ -163,6 +163,7 @@ Expect two types of questions:
     -   *Example:* Write a function to calculate Mean Squared Error.
 
 **Python Library Cheats for Data Tasks:**
+
 | Task                  | Pandas / NumPy Code                                   |
 |-----------------------|-------------------------------------------------------|
 | Load a CSV            | `df = pd.read_csv('data.csv')`                        |
