@@ -163,12 +163,13 @@ Expect two types of questions:
     -   *Example:* Write a function to calculate Mean Squared Error.
 
 **Python Library Cheats for Data Tasks:**
-| Task | "Pandas / NumPy Code" |
-|---|---|
-| Load a CSV | `df = pd.read_csv('data.csv')` |
-| Filter rows | `df[df['age'] > 30]` |
-| Group and aggregate | `df.groupby('category')['sales'].sum()` |
-| Handle missing values | `df['column'].fillna(df['column'].mean())` |
+| Task                  | Pandas / NumPy Code                                   |
+|-----------------------|-------------------------------------------------------|
+| Load a CSV            | `df = pd.read_csv('data.csv')`                        |
+| Select a column       | `df['column_name']`                                   |
+| Filter rows           | `df[df['age'] > 30]`                                  |
+| Group and aggregate   | `df.groupby('category')['sales'].sum()`               |
+| Handle missing values | `df['column'].fillna(df['column'].mean())`            |
 
 ### The Behavioral Interview
 This is your chance to tell your story. Use the **STAR method** for every answer.
