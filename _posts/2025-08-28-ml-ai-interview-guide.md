@@ -110,11 +110,11 @@ This is where you bring everything together. You'll be given a vague prompt and 
 ### A 6-Step Framework for Success
 ```mermaid
 graph TD
-    A[1. Clarify Requirements & Goals] --> B[2. Define the ML Problem & Metric];
-    B --> C[3. Data & Feature Engineering];
-    C --> D[4. Model Selection (Start Simple!)];
-    D --> E[5. System Architecture & Deployment];
-    E --> F[6. Scaling, Monitoring & Iteration];
+    A["1. Clarify Requirements & Goals"] --> B["2. Define the ML Problem & Metric"];
+    B --> C["3. Data & Feature Engineering"];
+    C --> D["4. Model Selection (Start Simple!)"];
+    D --> E["5. System Architecture & Deployment"];
+    E --> F["6. Scaling, Monitoring & Iteration"];
 ```
 
 ### Case Study: Design YouTube's Video Recommendation System
