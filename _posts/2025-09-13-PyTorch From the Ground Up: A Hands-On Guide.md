@@ -14,6 +14,8 @@ There are three lines of code that train almost every neural network in the worl
 
 The truth is, the entire PyTorch system follows a simple, five-step recipe. In this guide, we're going to build a learning machine using nothing but basic math and arrays. No magic. Once you've built the engine with your own hands, the professional tools provided by PyTorch will make perfect sense.
 
+<iframe width="500" height="315" src="https://www.youtube-nocookie.com/embed/r1bquDz5GGA?si=F0hsKO5wqWKp12_s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Part 1: The Building Blocks
 
 Everything in deep learning starts with a few core components. Master these, and you've built the foundation for everything that follows.
