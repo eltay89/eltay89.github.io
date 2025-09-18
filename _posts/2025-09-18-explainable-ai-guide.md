@@ -1,7 +1,7 @@
 ---
 title: 'The Comprehensive Guide to Explainable AI (XAI)'
-date: 2025-09-18
-permalink: /posts/2025/09/explainable-ai-guide/
+date: 2025-08-30
+permalink: /posts/2025/08/comprehensive-explainable-ai-guide/
 tags:
   - explainable-ai
   - machine-learning
