@@ -1,7 +1,7 @@
 ---
 title: 'A Guide to Explainable AI: The Five Key Methods'
 date: 2025-09-18
-permalink: /posts/2025/09/explainable-ai-guide/
+permalink: /posts/2025/08/explainable-ai-guide/
 tags:
   - explainable-ai
   - machine-learning
@@ -33,14 +33,14 @@ Explainable AI isn't just one technique; it's a whole toolbox. The right tool de
 ```mermaid
 graph TD
     A{Start: What do you want to explain?};
-    A -->|A model's specific decision| B{Is the model simple enough to be interpretable by design?};
-    A -->|A model's internal knowledge| F[Category 5: Explaining Model Internals];
+    A -->|"A model's specific decision"| B{Is the model simple enough to be interpretable by design?};
+    A -->|"A model's internal knowledge"| F[Category 5: Explaining Model Internals];
 
     B -->|Yes| C[Category 1: Interpretable Models];
     B -->|No| D{Do you need a method that works on ANY model?};
 
     D -->|Yes| E[Category 2: Model-Agnostic Methods];
-    D -->|No, my model is a neural network| G[Category 3: Model-Specific Methods];
+    D -->|"No, my model is a neural network"| G[Category 3: Model-Specific Methods];
     
     subgraph Other Approaches
       H[Category 4: Example-Based Methods]
@@ -64,10 +64,10 @@ These are methods that can explain the predictions of *any* model, no matter how
 
 ```mermaid
 graph LR
-    A[Base Value: 0.1] -->|BMI of 40 (+0.15)| B;
-    B -->|Blood Pressure of 180 (+0.2)| C;
-    C -->|Sex: Female (-0.05)| D;
-    D -->|Age: 65 (+0.1)| E[Final Prediction: 0.4];
+    A[Base Value: 0.1] -->|"BMI of 40 (+0.15)"| B;
+    B -->|"Blood Pressure of 180 (+0.2)"| C;
+    C -->|"Sex: Female (-0.05)"| D;
+    D -->|"Age: 65 (+0.1)"| E[Final Prediction: 0.4];
 ```
 -   **When to use it:** When you have a complex model (like a deep neural network or a large gradient-boosted tree) and you need to explain individual predictions.
 
