@@ -17,7 +17,7 @@ It's about opening up the "black box" to see the logic inside. This is crucial f
 ### Right Answer, Wrong Reason
 Let's start with a classic example. Imagine we train a computer vision model to identify dog breeds. We show it this picture, and it correctly predicts "Husky."
 
-![A photo of a husky dog in the snow.](https://storage.googleapis.com/e-object-409003.firebasestorage.app/ml-ai-interview-guide-2025-g01l1k1u.jpg)
+![A photo of a husky dog in the snow.](https://framerusercontent.com/images/HFml3HA0GY9PfYeEqe2Ni9Ctvak.jpg?width=4666&height=3235)
 
 Success, right? Not so fast.
 
