@@ -20,4 +20,4 @@ My work includes:
   
 ---
 
-- You can also explore my [CV](/cv), [Blog](/year-archive), [Substack Blog](aivibecode.substack.com) and [Publications](/publications) for more details.
+- You can also explore my [CV](/cv), [Blog](/year-archive), [Substack Blog](https://aivibecode.substack.com) and [Publications](/publications) for more details.
